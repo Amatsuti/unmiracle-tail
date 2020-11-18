@@ -1,10 +1,13 @@
 const path = require('path')
 const { description } = require('../../package')
 
+const base = process.env.BUILD_ELECTRON ?"/" :"/unmiracle-tail/"
+// const inc = process.env.BUILD_ELECTRON ?"/" :"/unmiracle-tail/"
+
 module.exports = {
   // Changes vuepress build directory
   dest: 'docs',
-  base: process.env.BUILD_ELECTRON ?"/" :"/unmiracle-tail/",
+  base,
 
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -13,7 +16,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: description,
+  description,
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -24,8 +27,8 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['script', { src: './wasm_exec.js' }],
-    ['script', { src: './wasm.js' }]
+    ['script', { src: path.join(base, 'wasm_exec.js') }],
+    ['script', { src: path.join(base, 'wasm.js') }]
   ],
 
   /**
