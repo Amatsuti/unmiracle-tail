@@ -1,0 +1,54 @@
+[
+  { "@method":"init",
+    "call": "base-targeting-cmd.init",
+    "args": {
+      "command": { "@self":"class-path" }
+    }
+  },
+  { "@method":"input",
+    "call": "base-targeting-cmd.input",
+    "hook": ["targeting.load-live-enemy"]
+  },
+  { "@method":"targeting",
+    "call": "base-targeting-cmd.targeting"
+  },
+  { "@method":"ai",
+    "call": "base-targeting-cmd.ai",
+    "args": { "command":{"@self":"class-path"} }
+  },
+  { "@method":"start-action",
+    "call": "base-targeting-cmd.start-action",
+    "args": {
+      "Armor":2000, "Aria":1000
+    }
+  },
+  { "@method":"action",
+    "hook": ["character.base-action"],
+    "args": { "action":"火炎魔法" },
+    "code": [
+      { "@call":"attack.1-attack",
+        "arguments":{
+          "player":{ "@arg":"player" },
+          "target":{ "@arg":"target" },
+
+          "ADamage":10,
+          "INTRatio":1.0,
+          "accurate":1.0,
+
+          "MNDRatio":1.0,
+
+          "onHit": {"@code":[
+            { "@call":"test-cmd/debuff-burning.add",
+              "arguments":{
+                "target": { "@arg":"target" }
+              }
+            }
+          ]}
+        }
+      }
+    ]
+  },
+  { "@method":"end-action",
+    "call": "base-targeting-cmd.end-action"
+  }
+]

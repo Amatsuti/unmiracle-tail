@@ -1,7 +1,7 @@
 {
   "name": "unmiracle-tail",
   "version": "0.0.1",
-  "description": "UnmiracleWorldSimulator",
+  "description": "不奇跡世界はお散歩日和/ダイスバトル用シミュレーター",
   "authors": {
     "name": "Amatsuti",
     "email": "oniprimsrq@yahoo.co.jp"
@@ -12,7 +12,7 @@
     "build": "vuepress build src",
     "electron": "wait-on http://localhost:8080 && electron .",
     "electron-dev": "concurrently \"npm run dev\" \"npm run electron\"",
-    "preelectron-pack": "npm run build",
+    "preelectron-pack": "cross-env BUILD_ELECTRON=true npm run build",
     "electron-pack": "electron-builder"
   },
   "license": "MIT",
@@ -20,10 +20,13 @@
     "concurrently": "^5.3.0",
     "electron": "^11.0.1",
     "electron-builder": "^22.9.1",
+    "sass": "^1.29.0",
+    "sass-loader": "^10.1.0",
     "vuepress": "^1.7.1",
     "wait-on": "^5.2.0"
   },
   "dependencies": {
+    "cross-env": "^7.0.2",
     "electron-serve": "^1.0.0"
   },
   "main": "main.js",
@@ -31,7 +34,7 @@
     "icon": "src/.vuepress/public/favicon.png",
     "productName": "Unmiracle Tail",
     "files": [
-      "build/**/*",
+      "docs/**/*",
       "main.js"
     ],
     "win": {},

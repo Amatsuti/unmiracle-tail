@@ -1,13 +1,15 @@
+const path = require('path')
 const { description } = require('../../package')
 
 module.exports = {
   // Changes vuepress build directory
   dest: 'docs',
+  base: process.env.BUILD_ELECTRON ?"/" :"/unmiracle-tail/",
 
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'Unmiracle Tail',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -21,7 +23,9 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
+    ['script', { src: './wasm_exec.js' }],
+    ['script', { src: './wasm.js' }]
   ],
 
   /**
@@ -37,6 +41,10 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
+        text: 'Simulator',
+        link: '/simulator/'
+      },
+      {
         text: 'Guide',
         link: '/guide/',
       },
@@ -45,8 +53,8 @@ module.exports = {
         link: '/config/'
       },
       {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
+        text: 'GitHub',
+        link: 'https://github.com/Amatsuti/unmiracle-tail'
       }
     ],
     sidebar: {
@@ -56,7 +64,7 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'using-vue',
+            'team-edit',
           ]
         }
       ],
@@ -69,5 +77,10 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-  ]
+  ],
+
+  chainWebpack (config) {
+    config.resolve.alias
+      .set('@', path.join(process.cwd(), 'src/.vuepress'))
+  }
 }

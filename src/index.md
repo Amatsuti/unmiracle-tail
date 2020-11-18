@@ -1,15 +1,15 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
-tagline: UnmiracleWorldSimulator
+heroImage: https://cerberus-diary.sakura.ne.jp/t/img/title2.png
+tagline: 不奇跡世界はお散歩日和/ダイスバトル専用シミュレータ
 actionText: Quick Start →
 actionLink: /guide/
 features:
-- title: Feature 1 Title
-  details: Feature 1 Description
-- title: Feature 2 Title
-  details: Feature 2 Description
-- title: Feature 3 Title
-  details: Feature 3 Description
-footer: Made by Amatsuti with ❤️
+- title: スキル・アビリティを自作可能
+  details: スキル・アビリティはカードのように設定ファイルで管理されており、自由に追加・変更できます。
+- title: ルールもカスタマイズ可能
+  details: ルールも設定ファイルでプログラムされているため、勝利条件や処理の流れも変更することができます。
+- title: 独自エンジン
+  details: 独自エンジンでJSON・XMLをプログラムのように実行します。ユーザのカスタマイズに特化しており、エンドユーザは小難しいif・for文を習う必要すらありません。
+footer: Copyright 2020 Amatsuti
 ---

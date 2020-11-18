@@ -1,0 +1,38 @@
+[
+  { "@method":"add",
+    "hook": ["buff.add"],
+    "args": {
+      "command": { "@self":"class-path" },
+      "name": "炎上",
+      "length": 3,
+      "min": 500,
+      "power": 1000,
+      "type": "debuff-physical", "color":"r",
+      "mode": "extension"
+    },
+    "code":[]
+  },
+  { "@method":"next-count",
+    "hook": ["character.passive-action", "buff.count"],
+    "args": { "action":"炎上" },
+    "code": [
+      { "@call":"attack.1-attack",
+        "arguments":{
+          "player":{ "@arg":"self" },
+          "target":{ "@arg":"player" },
+
+          "ADamage":10,
+          "STRRatio":1.0,
+          "accurate":1.0,
+
+          "VITRatio":1.0
+        }
+      }
+    ]
+  },
+  { "@method":"remove",
+    "hook": ["buff.remove"],
+    "args": { },
+    "code":[]
+  }
+]
