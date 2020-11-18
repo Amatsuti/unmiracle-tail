@@ -11,5 +11,5 @@ export default ({
   siteData // site metadata
 }) => {
   // ...apply enhancements for the site.
-  MainWasm(siteData)
+  global.config = siteData
 }

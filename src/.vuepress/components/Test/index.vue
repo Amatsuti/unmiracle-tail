@@ -16,6 +16,7 @@
 import BattleNote from '@/components/BattleNote'
 import { pt1, pt2, defSkill } from './const'
 import WhitePage from '@/components/WhitePage'
+import path from 'path'
 /*eslint-disable no-undef */
 export default {
   name: 'test',
@@ -43,7 +44,8 @@ export default {
           this.log = log
           this.pt1 = pt1
           this.pt2 = pt2
-        }
+        },
+        path.join(location.origin, global.config.base)
       )
     }
   }
