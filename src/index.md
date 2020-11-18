@@ -2,8 +2,8 @@
 home: true
 heroImage: https://cerberus-diary.sakura.ne.jp/t/img/title2.png
 tagline: 不奇跡世界はお散歩日和/ダイスバトル専用シミュレータ
-actionText: Quick Start →
-actionLink: /guide/
+actionText: Start →
+actionLink: /simulator/
 features:
 - title: スキル・アビリティを自作可能
   details: スキル・アビリティはカードのように設定ファイルで管理されており、自由に追加・変更できます。
