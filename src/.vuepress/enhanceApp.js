@@ -12,4 +12,5 @@ export default ({
 }) => {
   // ...apply enhancements for the site.
   global.config = siteData
+  loadMainWasm()
 }
