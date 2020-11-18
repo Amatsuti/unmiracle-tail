@@ -8,8 +8,7 @@
             <img :src="allCharacter | whoIdIs(c.RID) | icon | coalesceImage" class="icon">
             <div class="buff-area buff-area-left">
               <div class="dice">
-                <!-- <font-awesome-icon icon="dice-one" class="fa-1x" />x{{ c.status.SP }} -->
-                x{{ c.status.SP }}
+                🎲x{{ c.status.SP }}
               </div>
               <buff-icon v-for="buff in c.buff" :key="buff.id" 
                 :color="buff.color" :type="buff.type"
@@ -17,8 +16,7 @@
             </div>
           </div>
           <div class="hp hp-left">
-            <!-- <b-progress :value="c.status.HP" :max="c.status.MHP" 
-              variant="success" height="20" class="hp-bar" /> -->
+            <line-bar :value="c.status.HP" :max="c.status.MHP" side="left" />
             <div class="hp-name">{{pt1[i].name}}</div>
             <div class="hp-num">{{c.status.HP}}</div>
           </div>
@@ -52,8 +50,7 @@
             <img :src="allCharacter | whoIdIs(c.RID) | icon | coalesceImage" class="icon right">
             <div class="buff-area buff-area-right">
               <div class="dice">
-                <!-- <font-awesome-icon icon="dice-one" class="fa-1x" />x{{ c.status.SP }} -->
-                x{{ c.status.SP }}
+                🎲x{{ c.status.SP }}
               </div>
               <buff-icon v-for="buff in c.buff" :key="buff.id" 
                 :color="buff.color" :type="buff.type" 
@@ -61,8 +58,7 @@
             </div>
           </div>
           <div class="hp hp-right">
-            <!-- <b-progress :value="c.status.HP" :max="c.status.MHP" 
-              variant="success" height="20" class="hp-bar" /> -->
+            <line-bar :value="c.status.HP" :max="c.status.MHP" side="right" />
             <div class="hp-num">{{c.status.HP}}</div>
             <div class="hp-name">{{pt2[i].name}}</div>
           </div>
@@ -77,11 +73,13 @@ import _ from 'lodash'
 import base from './base'
 import BuffIcon from './BuffIcon'
 import noimage from '@/assets/noimage.png'
+import LineBar from './LineBar'
 export default {
   name:'next-turn',
   extends: base,
   components: {
-    BuffIcon
+    BuffIcon,
+    LineBar
   },
   filters: {
     coalesceImage (v) {
@@ -138,7 +136,8 @@ export default {
 
         &.right {
           position: absolute;
-          left: 0;
+          right: 0;
+          margin: 0 0 0 auto;
         }
       }
       .icon-area {
