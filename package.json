@@ -1,0 +1,41 @@
+{
+  "name": "unmiracle-tail",
+  "version": "0.0.1",
+  "description": "UnmiracleWorldSimulator",
+  "authors": {
+    "name": "Amatsuti",
+    "email": "oniprimsrq@yahoo.co.jp"
+  },
+  "repository": "https://github.com/Amatsuti/unmiracle-tail/unmiracle-tail",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "electron": "wait-on http://localhost:8080 && electron .",
+    "electron-dev": "concurrently \"npm run dev\" \"npm run electron\"",
+    "preelectron-pack": "npm run build",
+    "electron-pack": "electron-builder"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "electron": "^11.0.1",
+    "electron-builder": "^22.9.1",
+    "vuepress": "^1.7.1",
+    "wait-on": "^5.2.0"
+  },
+  "dependencies": {
+    "electron-serve": "^1.0.0"
+  },
+  "main": "main.js",
+  "build": {
+    "icon": "src/.vuepress/public/favicon.png",
+    "productName": "Unmiracle Tail",
+    "files": [
+      "build/**/*",
+      "main.js"
+    ],
+    "win": {},
+    "linux": {},
+    "mac": {}
+  }
+}
