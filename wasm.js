@@ -11,13 +11,11 @@ if (!WebAssembly.instantiateStreaming) {
 // main.wasmにビルドされたGoのプログラムを読み込む
 const go = new Go();
 let mod, inst;
-MainWasm = function(config) {
-  WebAssembly.instantiateStreaming(fetch(config.base + "main.wasm"), go.importObject).then((result) => {
-    mod = result.module;
-    inst = result.instance;
-    run()
-  });
-}
+WebAssembly.instantiateStreaming(fetch("/main.wasm"), go.importObject).then((result) => {
+  mod = result.module;
+  inst = result.instance;
+  run()
+});
 
 // 実行ボタンを押されたときの処理
 async function run() {
