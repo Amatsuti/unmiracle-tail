@@ -5,12 +5,21 @@
     <h2 v-else>引き分け！</h2>
     <div class="turn-table">
       <div class="left-side">
-        <div v-for="(c,i) in pt1status" :key="c.id"
+        <div v-for="(c,i) in pt1status" :key="c.RID"
           class="character">
-          <img :src="c.icon | coalesceImage" class="icon">
-          <div class="hp">
-            <b-progress :value="c.status.HP" :max="c.status.MHP" 
-              variant="success" height="20" class="hp-bar" />
+          <div class="icon-area">
+            <img :src="allCharacter | whoIdIs(c.RID) | icon | coalesceImage" class="icon">
+            <div class="buff-area buff-area-left">
+              <div class="dice">
+                🎲x{{ c.status.SP }}
+              </div>
+              <buff-icon v-for="buff in c.buff" :key="buff.id" 
+                :color="buff.color" :type="buff.type"
+                class="buff-icon" />
+            </div>
+          </div>
+          <div class="hp hp-left">
+            <line-bar :value="c.status.HP" :max="c.status.MHP" side="left" />
             <div class="hp-name">{{pt1[i].name}}</div>
             <div class="hp-num">{{c.status.HP}}</div>
           </div>
@@ -20,17 +29,20 @@
         <div v-for="(c,i) in pt2status" :key="c.id"
           class="character right">
           <div class="icon-area">
-            <img :src="c.icon | coalesceImage" class="icon right">
-            <div class="buff-area">
+            <img :src="allCharacter | whoIdIs(c.RID) | icon | coalesceImage" class="icon right">
+            <div class="buff-area buff-area-right">
+              <div class="dice">
+                🎲x{{ c.status.SP }}
+              </div>
               <buff-icon v-for="buff in c.buff" :key="buff.id" 
-                :color="buff.color" :type="buff.type" />
+                :color="buff.color" :type="buff.type" 
+                class="buff-icon" />
             </div>
           </div>
-          <div class="hp">
-            <b-progress :value="c.status.HP" :max="c.status.MHP" 
-              variant="success" height="20" class="hp-bar" />
-            <div class="hp-name">{{pt2[i].name}}</div>
+          <div class="hp hp-right">
+            <line-bar :value="c.status.HP" :max="c.status.MHP" side="right" />
             <div class="hp-num">{{c.status.HP}}</div>
+            <div class="hp-name">{{pt2[i].name}}</div>
           </div>
         </div>
       </div>
@@ -41,11 +53,18 @@
 <script>
 import _ from 'lodash'
 import base from './base'
+import BuffIcon from './BuffIcon'
+import noimage from '@/assets/noimage.png'
+import LineBar from './LineBar'
 export default {
   extends: base,
+  components: {
+    BuffIcon,
+    LineBar
+  },
   filters: {
     coalesceImage (v) {
-      return v || './img/noimage.png'
+      return v || noimage
     }
   },
   computed: {
@@ -92,7 +111,8 @@ export default {
 
         &.right {
           position: absolute;
-          left: 0;
+          right: 0;
+          margin: 0 0 0 auto;
         }
       }
       .icon-area {
@@ -103,11 +123,34 @@ export default {
         .buff-area {
           position: absolute;
           bottom: 0;
-          left: 0;
+
+          &.buff-area-right {
+            flex-direction: row;
+            left: 0;
+          }
+          &.buff-area-left {
+            flex-direction: row-reverse;
+            right: 0;
+          }
 
           display: flex;
 
-          background-color: rgba(0,0,0,0.3);
+          .dice {
+            width: 60px;
+            height: 30px;
+
+            padding: 5px;
+
+            font-weight: bold;
+
+            svg {
+              display: inline-block;
+            }
+          }
+
+          .buff-icon {
+            background-color: rgba(0,0,0,0.3);
+          }
         }
       }
 
@@ -121,7 +164,6 @@ export default {
         .hp-name {
           position: absolute;
           top: 0;
-          left: 0;
 
           line-height: 1rem;
           color: #FFF;
@@ -129,11 +171,19 @@ export default {
         .hp-num {
           position: absolute;
           top: 0;
-          right: 0;
 
           font-weight: bold;
           line-height: 1rem;
           color: #FFF;
+        }
+
+        &.hp-left {
+          .hp-name { left: 0; }
+          .hp-num { right: 0; }
+        }
+        &.hp-right {
+          .hp-name { right: 0; }
+          .hp-num { left: 0; }
         }
       }
     }

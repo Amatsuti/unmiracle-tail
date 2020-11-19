@@ -4,14 +4,14 @@
       <template v-if="options.value > 0">
         {{allCharacter | whoIdIs(options.player) | name }} の{{options.name}}が
         Lv<b :class="damageClass">
-          {{ options.value }}
+          {{ Math.floor(options.value/100) }}
         </b>
         強化！
       </template>
       <template v-else-if="options.value < 0">
         {{allCharacter | whoIdIs(options.player) | name }} の{{options.name}}が
         Lv<b :class="damageClass">
-          {{ -options.value }}
+          {{ Math.floor(-options.value/100) }}
         </b>
         弱体！
       </template>

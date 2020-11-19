@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <template v-if="options.level !== undefined">
-      {{allCharacter | whoIdIs(options.player) | name }} の{{options.action}}Lv{{options.level}}！
+      {{allCharacter | whoIdIs(options.player) | name }} の{{options.action}}Lv{{ Math.floor(options.level/100) }}！
     </template>
     <template v-else>
       {{allCharacter | whoIdIs(options.player) | name }} の{{options.action}}！

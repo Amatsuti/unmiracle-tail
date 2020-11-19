@@ -6,7 +6,7 @@
       </div>
       {{allCharacter | whoIdIs(options.player) | name }} に{{options.name}}Lv
       <b :class="damageClass">
-        {{ options.power }}
+        {{ Math.floor(options.power/100) }}
       </b>
       を付与！
     </div>

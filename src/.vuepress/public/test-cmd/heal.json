@@ -1,0 +1,40 @@
+[
+  { "@method":"init",
+    "call": "base-targeting-cmd.init",
+    "args": {
+      "command": { "@self":"class-path" }
+    }
+  },
+  { "@method":"input",
+    "call": "base-targeting-cmd.input",
+    "hook": ["targeting.load-live-friend"]
+  },
+  { "@method":"targeting",
+    "call": "base-targeting-cmd.targeting"
+  },
+  { "@method":"ai",
+    "call": "base-targeting-cmd.ai",
+    "args": { "command":{"@self":"class-path"} }
+  },
+  { "@method":"start-action",
+    "call": "base-targeting-cmd.start-action",
+    "args": {
+      "Armor":2000, "Aria":500
+    }
+  },
+  { "@method":"action",
+    "hook": ["character.base-action"],
+    "args": { "action":"回復魔法" },
+    "code": [
+      { "@call":"test-cmd/buff-heal.add",
+        "arguments":{
+          "target": { "@arg":"target" },
+          "player": { "@arg":"player" }
+        }
+      }
+    ]
+  },
+  { "@method":"end-action",
+    "call": "base-targeting-cmd.end-action"
+  }
+]
