@@ -36,6 +36,7 @@ export default {
   },
   methods: {
     simu () {
+      Unmiracle.base = path.join(location.origin, global.config.base)
       this.log = Unmiracle.simu(
         JSON.parse(this.pt1json),
         JSON.parse(this.pt2json),
@@ -44,8 +45,7 @@ export default {
           this.log = log
           this.pt1 = pt1
           this.pt2 = pt2
-        },
-        path.join(location.origin, global.config.base)
+        }
       )
     }
   }
