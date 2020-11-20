@@ -62,11 +62,21 @@ module.exports = {
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
+          title: 'ガイド',
           collapsable: false,
           children: [
             '',
             'team-edit',
+          ]
+        }
+      ],
+      '/config/': [
+        {
+          title: 'カード',
+          collapsable: false,
+          children: [
+            '',
+            'attack',
           ]
         }
       ],
