@@ -52,7 +52,19 @@ module.exports = {
       },
       {
         text: 'Config',
-        link: '/config/'
+        items: [{
+          text: "UnmiracleTail",
+          items: [{
+            text: "スキル",
+            link: "/card/skill.html",
+          }]
+        },{
+          text: "Unmiracle",
+          items: [{
+            text: "クラス",
+            link: "/class/",
+          }]
+        }]
       },
       {
         text: 'GitHub',
@@ -76,7 +88,25 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+          ]
+        }
+      ],
+      '/class/': [
+        {
+          title: 'クラス',
+          collapsable: false,
+          children: [
+            '',
             'attack',
+          ]
+        }
+      ],
+      '/card/': [
+        {
+          title: 'スキル',
+          collapsable: false,
+          children: [
+            'skill',
           ]
         }
       ],
