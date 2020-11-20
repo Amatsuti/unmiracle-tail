@@ -7,13 +7,14 @@
   },
   { "@method":"input",
     "call": "base-targeting-cmd.input",
-    "hook": ["targeting.load-live-friend"]
+    "hook": ["targeting.load-live-friend", "character.count-skill-ai"]
   },
   { "@method":"targeting",
     "call": "base-targeting-cmd.targeting"
   },
   { "@method":"ai",
     "call": "base-targeting-cmd.ai",
+    "hook": ["ai.change"],
     "args": { "command":{"@self":"class-path"} }
   },
   { "@method":"start-action",
