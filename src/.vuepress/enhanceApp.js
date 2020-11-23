@@ -3,6 +3,7 @@
  *
  * https://v1.vuepress.vuejs.org/guide/basic-config.html#app-level-enhancements
  */
+import loader from './card_loader'
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -12,4 +13,5 @@ export default ({
 }) => {
   // ...apply enhancements for the site.
   global.config = siteData
+  global.loader = loader
 }

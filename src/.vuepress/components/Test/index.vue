@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     simu () {
-      Unmiracle.base = path.join(location.origin, global.config.base)
+      Unmiracle.list = global.loader
       this.log = Unmiracle.simu(
         JSON.parse(this.pt1json),
         JSON.parse(this.pt2json),
