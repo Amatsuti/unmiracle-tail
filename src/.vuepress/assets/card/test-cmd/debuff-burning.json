@@ -25,7 +25,8 @@
           "STRRatio":1.0,
           "accurate":1.0,
 
-          "VITRatio":1.0
+          "VITRatio":1.0,
+          "ignoreHit":true
         }
       }
     ]

@@ -1,0 +1,37 @@
+[
+  { "@method":"init",
+    "call": "base-targeting-cmd.init",
+    "args": {
+      "command": { "@self":"class-path" }
+    }
+  },
+  { "@method":"input",
+    "call": "base-targeting-cmd.input",
+    "hook": ["targeting.load-me", "character.count-skill-ai"]
+  },
+  { "@method":"targeting",
+    "call": "base-targeting-cmd.targeting"
+  },
+  { "@method":"ai",
+    "call": "base-targeting-cmd.ai",
+    "hook": ["targeting.load-live-enemy", "targeting.focus-me",
+      "ai.exists", "ai.change"],
+    "args": { "command":{"@self":"class-path"} }
+  },
+  { "@method":"start-action",
+    "call": "base-targeting-cmd.start-action",
+    "hook": ["passive.avoid"],
+    "args": {
+      "Armor":1500, "Aria":1000, "Avoid":100
+    }
+  },
+  { "@method":"action",
+    "hook": ["character.base-action"],
+    "args": { "action":"回避" },
+    "code": [
+    ]
+  },
+  { "@method":"end-action",
+    "call": "base-targeting-cmd.end-action"
+  }
+]

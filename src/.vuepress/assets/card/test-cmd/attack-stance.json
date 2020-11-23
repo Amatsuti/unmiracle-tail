@@ -1,40 +1,37 @@
 [
   { "@method":"init",
     "call": "base-targeting-cmd.init",
+    "hook": ["passive.standby"],
     "args": {
       "command": { "@self":"class-path" }
     }
   },
   { "@method":"input",
     "call": "base-targeting-cmd.input",
-    "hook": ["targeting.load-live-friend", "targeting.unequip-buff",
-      "targeting.serious", "character.count-skill-ai"],
-    "args": {
-      "buffCommand": "test-cmd/buff-heal", "HP":999
-    }
+    "hook": ["targeting.load-me", "character.count-skill-ai"]
   },
   { "@method":"targeting",
     "call": "base-targeting-cmd.targeting"
   },
   { "@method":"ai",
     "call": "base-targeting-cmd.ai",
-    "hook": ["targeting.load-live-friend", "targeting.unequip-buff",
-      "targeting.serious", "ai.exists", "ai.change"],
+    "hook": ["targeting.load-me", "targeting.unequip-buff",
+      "ai.exists", "ai.change"],
     "args": { "command":{"@self":"class-path"},
-      "buffCommand": "test-cmd/buff-heal", "HP":999
+      "buffCommand": "test-cmd/buff-attack-stance"
     }
   },
   { "@method":"start-action",
     "call": "base-targeting-cmd.start-action",
     "args": {
-      "Armor":2000, "Aria":500
+      "Armor":2000, "Aria":1000
     }
   },
   { "@method":"action",
     "hook": ["character.base-action"],
-    "args": { "action":"回復魔法" },
+    "args": { "action":"攻撃体勢" },
     "code": [
-      { "@call":"test-cmd/buff-heal.add",
+      { "@call":"test-cmd/buff-attack-stance.add",
         "arguments":{
           "target": { "@arg":"target" },
           "player": { "@arg":"player" }
