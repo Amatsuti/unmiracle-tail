@@ -59,5 +59,41 @@
       },
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"avoid",
+    "args":{ "Avoid":0 },
+    "code":[
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"avoid", "as":"string" },
+          "value": { "@arg":"Avoid" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"avoid" },
+          "map": {
+            "avoid": { "@var":"avoid" }
+          },
+          "value": "回避状態"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": { "@var":"avoid" },
+          "priority": 1000,
+          "value": 3000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "start-action",
+          "value": { "@var":"st" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
   }
 ]

@@ -38,6 +38,15 @@
           "to": { "@var":"action" },
           "value": { "@var":"st" }
         }
+      },
+      { "@call": "code.execute",
+        "arguments": {
+          "value": { "@arg":"onHit" },
+          "args": {
+            "player": { "@arg":"player" },
+            "target": { "@arg":"target" }
+          }
+        }
       }
     ]
   }

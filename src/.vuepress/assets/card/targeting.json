@@ -62,6 +62,21 @@
       { "@goto":"hook" }
     ]
   },
+  { "@method":"focus-me",
+    "args":{},
+    "code":[
+      { "@define": ["token", "code/text/word", {
+        "M": "自己狙いの"
+      }] },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@arg":"current" },
+          "value": { "@var":"token" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
+  },
   { "@method":"serious",
     "args":{ "HP":500 },
     "code":[
