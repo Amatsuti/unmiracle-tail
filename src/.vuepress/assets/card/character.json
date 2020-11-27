@@ -1,0 +1,59 @@
+[
+  { "@method":"count-skill-ai",
+    "args":{},
+    "code":[
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": "スキルを使用済みにします",
+          "priority": 1000,
+          "value": 2000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "input",
+          "value": { "@var":"st" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
+  },
+  { "@method":"base-action",
+    "args":{ "player":"自分", "target":"対象" },
+    "code":[
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": "行動します",
+          "priority": 1000,
+          "value": 1000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "action",
+          "value": { "@var":"st" }
+        }
+      },
+      { "@define": ["action", "array", []] }, 
+      { "@goto":"hook" },
+      { "@call":"array.each",
+        "arguments":{
+          "value":{"@var":"action"},
+          "do":{"@code":[
+            { "@call": "code/text.put",
+              "arguments": {
+                "to": { "@var":"text" },
+                "key": "action",
+                "value": { "@arg":"value" }
+              }
+            }
+          ]}
+        }
+      }
+    ]
+  }
+]

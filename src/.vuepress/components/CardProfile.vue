@@ -1,10 +1,34 @@
 <template>
-  <div class="demo">
-    {{ action.args.action }}
+  <div class="profile">
+    <div class="type">条件</div>
+    <ul>
+      <li v-for="v in ai">
+        {{ v }}
+      </li>
+    </ul>
+    <div class="type">入力</div>
+    <ul>
+      <li v-for="v in input">
+        {{ v }}
+      </li>
+    </ul>
+    <div class="type">詠唱</div>
+    <ul>
+      <li v-for="v in startAction">
+        {{ v }}
+      </li>
+    </ul>
+    <div class="type">行動</div>
+    <ul>
+      <li v-for="v in action">
+        {{ v }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
+/*eslint-disable no-undef */
 import path from 'path'
 import _ from 'lodash'
 export default {
@@ -12,27 +36,19 @@ export default {
     command: String
   },
   computed: {
-    // info () { return _.find(this.innerValue, {'@method':'info'}).args },
-    // init () { return _.find(this.innerValue, {'@method':'init'}).args },
-    // prepare () { return _.find(this.innerValue, {'@method':'prepare'}) },
-    // mix () { return _.find(this.innerValue, {'@method':'mix'}) },
-    // initBattle () { return _.find(this.innerValue, {'@method':'init-battle'}) },
-    // ai () { return _.find(this.innerValue, {'@method':'ai'}) },
-    // input () { return _.find(this.innerValue, {'@method':'input'}) },
-    // startAction () { return _.find(this.innerValue, {'@method':'start-action'}) },
-    action () { return _.find(this.innerValue, {'@method':'action'}) },
-    // targeting () { return _.find(this.innerValue, {'@method':'targeting'}) },
-    // endAction () { return _.find(this.innerValue, {'@method':'end-action'}) },
+    ai () { return this.innerValue["ai"] },
+    input () { return this.innerValue["input"] },
+    startAction () { return this.innerValue["start-action"] },
+    action () { return this.innerValue["action"] },
   },
   data () {
     return {
-      innerValue: []
+      innerValue: {}
     }
   },
   created () {
-    fetch(path.join(global.config.base,this.command+".json"))
-      .then(response => response.json())
-      .then(data => this.innerValue = data)
+    Unmiracle.list = global.loader
+    Unmiracle.getText(this.command, (data)=>{ this.innerValue = data })
   }
 }
 </script>
@@ -41,6 +57,20 @@ export default {
 .profile {
   ::v-deep p {
     margin: 0;
+  }
+
+  .type {
+    font-weight: bold;
+    margin: 0.5rem 0;
+  }
+  ul {
+    margin: 0;
+    line-height: 1.0;
+
+    li {
+      line-height: 1.2;
+
+    }
   }
 }
 </style>

@@ -1,0 +1,126 @@
+[
+  { "@method":"init",
+    "args":{},
+    "code":[]
+  },
+  { "@method":"input",
+    "args":{},
+    "code":[
+      { "@call": "array.shift",
+        "arguments": {
+          "to": { "@var":"target", "as":"code/text/word" },
+          "value": { "@arg":"current" }
+        }
+      },
+      { "@call": "code/text/sentence.put-word",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "word": { "@var":"target" },
+          "key": "O",
+          "priority": 2000,
+          "value": 0
+        }
+      },
+      { "@call":"array.each",
+        "arguments":{
+          "value":{"@arg":"current"},
+          "do":{"@code":[
+            { "@call": "code/text/sentence.put-word",
+              "arguments": {
+                "to": { "@var":"st" },
+                "word": { "@arg":"value" },
+                "key": "M",
+                "priority": 1000,
+                "value": 0
+              }
+            }
+          ]}
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st" },
+          "text": "対象に選択します",
+          "priority": 3000,
+          "value": 1000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "input",
+          "value": { "@var":"st" }
+        }
+      }
+    ]
+  },
+  { "@method":"ai",
+    "args":{},
+    "code":[]
+  },
+  { "@method":"start-action",
+    "args":{ "Armor":0, "Aria":0 },
+    "code":[
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"armor", "as":"string" },
+          "value": { "@arg":"Armor" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"armor" },
+          "map": {
+            "armor": { "@var":"armor" }
+          },
+          "value": "耐久力：{armor}"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"armor-st", "as":"code/text/sentence" },
+          "text": { "@var":"armor" },
+          "priority": 1000,
+          "value": 1000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "start-action",
+          "value": { "@var":"armor-st" }
+        }
+      },
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"aria", "as":"string" },
+          "value": { "@arg":"Aria" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"aria" },
+          "map": {
+            "aria": { "@var":"aria" }
+          },
+          "value": "詠唱速度：{aria}"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"aria-st", "as":"code/text/sentence" },
+          "text": { "@var":"aria" },
+          "priority": 1000,
+          "value": 2000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "start-action",
+          "value": { "@var":"aria-st" }
+        }
+      }
+    ]
+  }
+]

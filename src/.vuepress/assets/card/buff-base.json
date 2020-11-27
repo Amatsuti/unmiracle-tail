@@ -1,0 +1,17 @@
+[
+  {
+    "@method": "add",
+    "args": {},
+    "code": []
+  },
+  {
+    "@method": "next-count",
+    "args": {},
+    "code": []
+  },
+  {
+    "@method": "remove",
+    "args": {},
+    "code": []
+  }
+]
