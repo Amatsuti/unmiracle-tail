@@ -14,4 +14,10 @@ export default ({
   // ...apply enhancements for the site.
   global.config = siteData
   global.loader = loader
+  global.Unmiracle = {
+    list: loader,
+    print: ()=>{ console.log("dummy") },
+    simu: ()=>{ console.log("dummy") },
+    getText: ()=>{ console.log("dummy") }
+  }
 }

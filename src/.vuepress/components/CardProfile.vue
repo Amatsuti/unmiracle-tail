@@ -47,8 +47,8 @@ export default {
     }
   },
   created () {
-    Unmiracle.list = global.loader
-    Unmiracle.getText(this.command, (data)=>{ this.innerValue = data })
+    global.Unmiracle.list = global.loader
+    global.Unmiracle.getText(this.command, (data)=>{ this.innerValue = data })
   }
 }
 </script>
