@@ -2,11 +2,13 @@
 title: スキル
 ---
 
-| コマンド       | 行動 |
-| -------------- | ---- |
-| test-cmd/smash | 打撃 |
-
 # 攻撃系
+
+## 打撃(test-cmd/smash)
+
+<CardProfile command="test-cmd/smash" />
+
+# 防御系
 
 ## 庇う(test-cmd/protect)
 

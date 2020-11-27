@@ -31,6 +31,22 @@
       { "@goto":"hook" }
     ]
   },
+  { "@method":"load-live-enemy",
+    "args":{},
+    "code":[
+      { "@define": ["token", "code/text/word", {
+        "S": "敵が",
+        "O": "敵を"
+      }] },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@arg":"current" },
+          "value": { "@var":"token" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
+  },
   { "@method":"without-me",
     "args":{},
     "code":[
@@ -52,7 +68,7 @@
       { "@call": "number.to-string",
         "arguments": {
           "to": { "@var":"HP", "as":"string" },
-          "value": { "@arg":"HP" }
+          "value": { "@calc":"@HP / 10" }
         }
       },
       { "@call": "string.format",
