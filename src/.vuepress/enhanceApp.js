@@ -3,7 +3,7 @@
  *
  * https://v1.vuepress.vuejs.org/guide/basic-config.html#app-level-enhancements
  */
-import loader from './card_loader'
+import wasm from "./wasm"
 
 export default ({
   Vue, // the version of Vue being used in the VuePress app
@@ -12,12 +12,5 @@ export default ({
   siteData // site metadata
 }) => {
   // ...apply enhancements for the site.
-  global.config = siteData
-  global.loader = loader
-  global.Unmiracle = {
-    list: loader,
-    print: ()=>{ console.log("dummy") },
-    simu: ()=>{ console.log("dummy") },
-    getText: ()=>{ console.log("dummy") }
-  }
+  wasm(siteData, Vue)
 }

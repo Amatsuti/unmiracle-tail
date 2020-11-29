@@ -1,41 +1,48 @@
 <template>
-  <div class="profile">
-    <div class="type">条件</div>
-    <ul>
-      <li v-for="v in ai">
-        {{ v }}
-      </li>
-    </ul>
-    <div class="type">入力</div>
-    <ul>
-      <li v-for="v in input">
-        {{ v }}
-      </li>
-    </ul>
-    <div class="type">詠唱</div>
-    <ul>
-      <li v-for="v in startAction">
-        {{ v }}
-      </li>
-    </ul>
-    <div class="type">行動</div>
-    <ul>
-      <li v-for="v in action">
-        {{ v }}
-      </li>
-    </ul>
-  </div>
+  <tr class="profile">
+    <td class="name">{{ cardName }}</td>
+    <td class="ai">
+      <ul>
+        <li v-for="v in ai">
+          {{ v.value }}
+        </li>
+      </ul>
+    </td>
+    <td class="input">
+      <ul>
+        <li v-for="v in input">
+          {{ v.value }}
+        </li>
+      </ul>
+    </td>
+    <td class="start-action">
+      <ul>
+        <li v-for="v in startAction">
+          {{ v.value }}
+        </li>
+      </ul>
+    </td>
+    <td class="action">
+      <ul>
+        <li v-for="v in action">
+          {{ v.value }}
+        </li>
+      </ul>
+    </td>
+  </tr>
 </template>
 
 <script>
 /*eslint-disable no-undef */
 import path from 'path'
 import _ from 'lodash'
+import { Unmiracle } from '@/wasm'
 export default {
   props: {
     command: String
   },
   computed: {
+    cardName () { return this.innerValue["name"] },
     ai () { return this.innerValue["ai"] },
     input () { return this.innerValue["input"] },
     startAction () { return this.innerValue["start-action"] },
@@ -47,8 +54,19 @@ export default {
     }
   },
   created () {
-    global.Unmiracle.list = global.loader
-    global.Unmiracle.getText(this.command, (data)=>{ this.innerValue = data })
+    if(Unmiracle.status.load){
+      this.load()
+    }else{
+      let hnd = this.$watch(()=>Unmiracle.status.load, ()=>{
+        this.load() 
+        hnd()
+      })
+    }
+  },
+  methods: {
+    load () {
+      Unmiracle.getText(this.command, (data)=>{ this.innerValue = data })
+    }
   }
 }
 </script>

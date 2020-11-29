@@ -6,7 +6,7 @@
     </div>
     <div class="rule">
       <!-- <textarea rows="30" v-model="defSkill" /> -->
-      <button @click="simu">シミュレーション</button>
+      <button @click="simu" :disabled="!ok">シミュレーション</button>
     </div>
     <battle-note :code="log" :pt1="pt1" :pt2="pt2"></battle-note>
   </white-page>
@@ -17,9 +17,13 @@ import BattleNote from '@/components/BattleNote'
 import { pt1, pt2, defSkill } from './const'
 import WhitePage from '@/components/WhitePage'
 import path from 'path'
+import { Unmiracle } from '@/wasm'
 /*eslint-disable no-undef */
 export default {
   name: 'test',
+  computed: {
+    ok () { return Unmiracle.status.load }
+  },
   data () {
     return {
       log: [],
@@ -36,7 +40,6 @@ export default {
   },
   methods: {
     simu () {
-      Unmiracle.list = global.loader
       this.log = Unmiracle.simu(
         JSON.parse(this.pt1json),
         JSON.parse(this.pt2json),

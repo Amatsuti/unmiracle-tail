@@ -26,8 +26,6 @@ module.exports = {
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
-    ['script', { src: '/wasm_exec.js' }],
-    ['script', { src: '/wasm.js' }]
   ],
 
   /**
@@ -124,5 +122,11 @@ module.exports = {
   chainWebpack (config) {
     config.resolve.alias
       .set('@', path.join(process.cwd(), 'src/.vuepress'))
+    config.module
+      .rule('wasm')
+      .test(/\.wasm$/)
+      .type('javascript/auto')
+      .use('arraybuffer-loader')
+        .loader('arraybuffer-loader')
   }
 }
