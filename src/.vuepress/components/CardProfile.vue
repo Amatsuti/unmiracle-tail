@@ -8,13 +8,13 @@
       </div>
       <div class="profile-second">
         <div class="select">
-          <div>条件</div>
+          <div class="detail-head">条件</div>
           <ul>
             <li v-for="v in ai">
               {{ v.value }}
             </li>
           </ul>
-          <div>入力</div>
+          <div class="detail-head">入力</div>
           <ul>
             <li v-for="v in input">
               {{ v.value }}
@@ -25,7 +25,7 @@
         <div class="aria">{{ aria }}</div> -->
         <div class="action">
           <div class="start-action">
-            <div class="aria">速度：{{ aria }}</div>
+            <div class="aria">発生：{{ aria }}</div>
             <div class="armor">耐久：{{ armor }}</div>
           </div>
           <div class="action-detail">
@@ -34,14 +34,14 @@
                 {{ v.value }}
               </li>
             </ul>
-            <!-- <template v-if="etc.length > 0">
-              <div>その他</div>
+            <template v-if="etc.length > 0">
+              <div class="detail-head">その他</div>
               <ul>
-                <li v-for="v in input">
+                <li v-for="v in etc">
                   {{ v.value }}
                 </li>
               </ul>
-            </template> -->
+            </template>
           </div>
         </div>
       </div>
@@ -66,7 +66,7 @@ export default {
     armor () { return this.innerValue.armor },
     aria () { return this.innerValue.aria },
     action () { return this.innerValue["action"] },
-    etc () { return this.innerValue["etc"] },
+    etc () { return this.innerValue["etc"]||[] },
   },
   data () {
     return {
@@ -146,6 +146,10 @@ export default {
 
     display: flex;
 
+    .detail-head {
+      font-size: small;
+    }
+
     .select, .action {
       width: 330px;
       vertical-align: top;
@@ -177,6 +181,7 @@ export default {
 
   ul {
     margin: 0;
+    margin-bottom: 10px;
     line-height: 1.0;
 
     li {

@@ -1,6 +1,6 @@
 [
   { "@define": ["name", "string", "回復魔法"]},
-  { "@method":"init",
+  { "@method":"init-battle",
     "call": "base-targeting-cmd.init",
     "args": {
       "command": { "@self":"class-path" }

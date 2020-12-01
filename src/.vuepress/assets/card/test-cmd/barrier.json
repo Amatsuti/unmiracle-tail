@@ -1,6 +1,6 @@
 [
   { "@define": ["name", "string", "結界魔法"]},
-  { "@method":"init",
+  { "@method":"init-battle",
     "call": "base-targeting-cmd.init",
     "hook": ["passive.standby"],
     "args": {

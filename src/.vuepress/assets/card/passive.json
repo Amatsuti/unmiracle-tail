@@ -39,7 +39,7 @@
           "map": {
             "armor": { "@var":"guard" }
           },
-          "value": "防御状態"
+          "value": "詠唱中防御状態になります"
         }
       },
       { "@call": "code/text/sentence.put",
@@ -53,7 +53,7 @@
       { "@call": "code/text.put",
         "arguments": {
           "to": { "@var":"text" },
-          "key": "start-action",
+          "key": "etc",
           "value": { "@var":"st" }
         }
       },
@@ -75,7 +75,7 @@
           "map": {
             "avoid": { "@var":"avoid" }
           },
-          "value": "回避状態"
+          "value": "詠唱中回避状態になります"
         }
       },
       { "@call": "code/text/sentence.put",
@@ -89,7 +89,7 @@
       { "@call": "code/text.put",
         "arguments": {
           "to": { "@var":"text" },
-          "key": "start-action",
+          "key": "etc",
           "value": { "@var":"st" }
         }
       },

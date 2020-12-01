@@ -1,6 +1,6 @@
 [
   { "@define": ["name", "string", "打撃"]},
-  { "@method":"init",
+  { "@method":"init-battle",
     "call": "base-targeting-cmd.init",
     "args": {
       "command": { "@self":"class-path" }

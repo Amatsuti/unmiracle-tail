@@ -1,0 +1,6 @@
+[
+  { "@method": "throw",
+    "args":{ "dice":2 },
+    "code":[]
+  }
+]

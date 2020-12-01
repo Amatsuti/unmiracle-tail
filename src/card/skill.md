@@ -1,12 +1,124 @@
 ---
 title: スキル
-sidebar: false
+# sidebar: false
 ---
 
 # 攻撃系
 
 <CardProfile command="test-cmd/smash" />
 <CardProfile command="test-cmd/fire" />
+<!--<CardProfile command="00000000001KdPKW2gri4zTP02Eo0002" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0002" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0003" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0006" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0007" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0008" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA0009" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000a" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000b" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000c" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000d" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000e" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000f" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000g" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000h" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000i" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000j" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000k" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000l" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000m" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000n" />
+<CardProfile command="00000000001KdPKW2gri4zTP06yA000o" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20002" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20003" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20004" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20005" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20006" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0002" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0003" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0006" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0007" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40002" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40003" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40004" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40005" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40006" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40007" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40008" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo40009" />
+<CardProfile command="00000000001KdPKW2gri4zTP0bo4000a" />
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0002" /> -->
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0003" />
+<!-- <CardProfile command="00000000001KdPKW2gri4zTP0caY0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0006" />
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0007" />
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0008" />
+<CardProfile command="00000000001Ke9aG3TYufqYy00a80002" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0002" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0003" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0004" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0005" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0006" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0007" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0008" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww0009" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000a" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000b" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000c" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000d" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000e" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000f" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000g" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000h" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000i" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000j" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000k" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000l" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000m" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000n" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000o" />
+<CardProfile command="00000000001Ke9aG3TYufqYy08Ww000p" />
+<CardProfile command="00000000001Ke9aG3TYufqYy0d2Y0002" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80002" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80003" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80004" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80005" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80006" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80007" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80008" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW80009" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000a" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000b" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000c" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000d" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000e" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000f" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000g" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000h" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000i" />
+<CardProfile command="00000000001Kemth17VFNzqU0aW8000j" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0002" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0003" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0004" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0005" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0006" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0007" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0008" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0009" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80002" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80003" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80004" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80005" />
+<CardProfile command="00000000001KgHvr0C2M78ex04jg0002" /> -->
 
 # 防御系
 
