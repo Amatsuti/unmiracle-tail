@@ -18,7 +18,6 @@ import { pt1, pt2, defSkill } from './const'
 import WhitePage from '@/components/WhitePage'
 import path from 'path'
 import { Unmiracle } from '@/wasm'
-import cardList from '@/assets/cardlist.json'
 /*eslint-disable no-undef */
 export default {
   name: 'test',
@@ -38,9 +37,6 @@ export default {
   components: {
     BattleNote,
     WhitePage
-  },
-  mounted () {
-    console.log(cardList)
   },
   methods: {
     simu () {
