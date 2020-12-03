@@ -2,6 +2,7 @@
 node_modules
 /dist
 /docs
+/src/.vuepress/assets/cardlist.json
 
 # local env files
 .env.local
