@@ -12,14 +12,23 @@
         名前：<input type="text" v-model="edit.profile.name" />
         <div class="skill">
           スキル
-          <select>
-            <option v-for="v in cardList" :value="v.value">{{ v.text }}</option>
-          </select>
+          <div v-for="(v,i) in edit.skill" 
+            class="skill-child" @click="listSkill(i)">{{ cardName(v) }}</div>
+          <div class="btn" @click="listSkill(-1)">＋</div>
         </div>
         <div class="ability">アビリティ</div>
-        <div class="ai">戦闘設定</div>
+        <div class="ai">
+          戦闘設定
+          <div v-for="(v,i) in edit.ai"
+            class="ai-child">{{ cardName(skillInEdit(v.arguments.rid)) }}</div>
+        </div>
       </div>
-      <div class="material"></div>
+      <div class="material">
+        <div v-if="submode == 'skill'">
+          <div v-for="v in cardList" 
+            class="material-child" @click="selectSkill(v.value)">{{ v.text }}</div>
+        </div>
+      </div>
     </div>
     <div v-else-if="mode == 'export'"
       class="main">
@@ -32,6 +41,7 @@
 
 <script>
 import cardList from '@/assets/cardlist.json'
+import _ from 'lodash'
 export default {
   computed: {
     textValue () { return JSON.stringify(this.innerValue) },
@@ -41,6 +51,8 @@ export default {
     return {
       innerValue: [],
       mode: 'export',
+      submode: null,
+      subcursor: -1,
       edit: null,
     }
   },
@@ -60,15 +72,54 @@ export default {
     editMember (v) {
       this.mode = 'member'
       this.edit = v
+    },
+    listSkill (cur) {
+      this.subcursor = cur
+      this.submode = 'skill'
+    },
+    selectSkill (val) {
+      if(this.subcursor < 0){ 
+        const rid = _.uniqueId('S')
+        this.edit.skill.push({
+          Cmd: val,
+          Arg: { Lv:1 },
+          RID: rid
+        })
+        this.edit.ai.push({
+          "@call": `${val}.ai`,
+          arguments: { rid, player:{"@arg":"player"} }
+        })
+      }else{
+        _.assign(this.edit.skill[this.subcursor],{
+          Cmd: val,
+          Arg: { Lv:1 },
+        })
+        let ai = _.find(this.edit.ai, { arguments:{rid:this.edit.skill[this.subcursor].RID} })
+        ai["@call"] = `${val}.ai`
+      }
+    },
+    skillInEdit (RID) {
+      return _.find(this.edit.skill, { RID })
+    },
+    cardName (v) {
+      return _.find(cardList, { value:v.Cmd }).text
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+//汎用
 div {
   box-sizing: border-box;
+
+  .btn {
+    padding: 5px 10px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+  }
 }
+//レイアウト
 .content {
   position: fixed;
   top: 0;
