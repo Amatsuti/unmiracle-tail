@@ -97,5 +97,11 @@
       },
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"targeting",
+    "args":{ },
+    "code":[
+      { "@goto":"hook" }
+    ]
   }
 ]

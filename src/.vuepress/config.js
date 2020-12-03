@@ -1,5 +1,7 @@
 const path = require('path')
 const { description } = require('../../package')
+const CardListPlugin = require('card-list-plugin')
+const webpack = require('webpack')
 
 const base = process.env.BUILD_ELECTRON ?"/" :"/unmiracle-tail/"
 
@@ -128,5 +130,11 @@ module.exports = {
       .type('javascript/auto')
       .use('arraybuffer-loader')
         .loader('arraybuffer-loader')
+    config.plugin('card-list')
+      .use(CardListPlugin, [{ 
+        filename: 'cardlist.json',
+        path: path.join(process.cwd(), 'src/.vuepress/assets'),
+        includePath: path.join(process.cwd(), 'src/.vuepress/assets/card'),
+      }])
   }
 }

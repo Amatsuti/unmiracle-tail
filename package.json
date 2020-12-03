@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "arraybuffer-loader": "^1.0.8",
+    "card-list-plugin": "file:lib/card-list-plugin",
     "concurrently": "^5.3.0",
     "electron": "^11.0.1",
     "electron-builder": "^22.9.1",
