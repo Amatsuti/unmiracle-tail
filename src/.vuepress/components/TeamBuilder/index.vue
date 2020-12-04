@@ -3,8 +3,8 @@
     <div class="nav">
       <div v-for="(v,i) in innerValue"
         class="nav-child member" @click="editMember(v)">{{ v.profile.name }}</div>
-      <div class="nav-child member" @click="addMember">＋</div>
-      <div class="nav-child export" @click="mode='export'">コード</div>
+      <div class="nav-child member" @click="addMember">＋追加</div>
+      <div class="nav-child export" @click="exportMode">コード</div>
     </div>
     <div v-if="mode == 'member'"
       class="main">
@@ -12,15 +12,26 @@
         名前：<input type="text" v-model="edit.profile.name" />
         <div class="skill">
           スキル
-          <div v-for="(v,i) in edit.skill" 
-            class="skill-child" @click="listSkill(i)">{{ cardName(v) }}</div>
-          <div class="btn" @click="listSkill(-1)">＋</div>
+          <draggable v-model="edit.skill" handle=".grip">
+            <div v-for="(v,i) in edit.skill" :key="`skill-${v.RID}`" 
+              class="skill-child" @click="listSkill(i)">
+              <div class="grip">＝</div>
+              <div class="label">{{ cardName(v) }}</div>
+              <div class="del" @click="removeSkill(i)">×</div>
+            </div>
+          </draggable>
+          <div class="btn" @click="listSkill(-1)">＋追加</div>
         </div>
         <div class="ability">アビリティ</div>
         <div class="ai">
           戦闘設定
-          <div v-for="(v,i) in edit.ai"
-            class="ai-child">{{ cardName(skillInEdit(v.arguments.rid)) }}</div>
+          <draggable v-model="edit.ai" handle=".grip">
+            <div v-for="(v,i) in edit.ai" :key="`ai-${v.arguments.rid}`"
+              class="ai-child">
+              <div class="grip">＝</div>
+              <div class="label">{{ cardName(skillInEdit(v.arguments.rid)) }}</div>
+            </div>
+          </draggable>
         </div>
       </div>
       <div class="material">
@@ -33,7 +44,10 @@
     <div v-else-if="mode == 'export'"
       class="main">
       <div class="json">
-        <textarea rows="20" :value="textValue" />
+        <textarea rows="20" v-model="textValue" />
+        <div>
+          <div class="btn" @click="importText">インポート</div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,10 +56,13 @@
 <script>
 import cardList from '@/assets/cardlist.json'
 import _ from 'lodash'
+import draggable from 'vuedraggable'
 export default {
   computed: {
-    textValue () { return JSON.stringify(this.innerValue) },
     cardList () { return cardList }
+  },
+  components: {
+    draggable
   },
   data () {
     return {
@@ -54,6 +71,8 @@ export default {
       submode: null,
       subcursor: -1,
       edit: null,
+
+      textValue: '[]',
     }
   },
   methods: {
@@ -68,10 +87,18 @@ export default {
         }],
         ai: []
       })
+      this.textValue = JSON.stringify(this.innerValue, null, 2)
     },
     editMember (v) {
       this.mode = 'member'
       this.edit = v
+    },
+    exportMode () {
+      this.textValue = JSON.stringify(this.innerValue, null, 2)
+      this.mode = 'export'
+    },
+    importText () {
+      this.innerValue = JSON.parse(this.textValue)
     },
     listSkill (cur) {
       this.subcursor = cur
@@ -98,6 +125,11 @@ export default {
         ai["@call"] = `${val}.ai`
       }
     },
+    removeSkill (i) {
+      let rid = this.edit.skill[i].RID
+      this.edit.skill.splice(i,1)
+      this.edit.ai = _.reject(this.edit.ai, { arguments:{rid} })
+    },
     skillInEdit (RID) {
       return _.find(this.edit.skill, { RID })
     },
@@ -116,6 +148,10 @@ div {
   .btn {
     padding: 5px 10px;
     border: 1px solid #CCC;
+    border-radius: 5px;
+
+    display: inline-block;
+    
     cursor: pointer;
   }
 }
@@ -137,13 +173,40 @@ div {
 
   .main {
     display: flex;
-    height: calc(100% - 2rem);
+    height: calc(100% - 3.5rem);
 
     .character {
       width: 400px;
+
+      .skill, .ai {
+        padding: 20px 0;
+
+        .skill-child, .ai-child {
+          border: 1px solid #CCC;
+
+          display: flex;
+          justify-content: space-between;
+
+          .grip { width:20px; cursor: grab; }
+          .del { width:20px; cursor: pointer; }
+          .label { width:calc(100% - 40px); }
+        }
+      }
     }
     .material {
       width: 400px;
+      height: 100%;
+
+      overflow-y: scroll;
+
+      .material-child {
+        border: 1px solid #CCC;
+        cursor: pointer;
+
+        .focus: {
+          background-color: #CCC;
+        }        
+      }
     }
     .json {
       width: 800px;

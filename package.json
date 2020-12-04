@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "cross-env": "^7.0.2",
-    "electron-serve": "^1.0.0"
+    "electron-serve": "^1.0.0",
+    "vuedraggable": "^2.24.3"
   },
   "main": "main.js",
   "build": {
