@@ -1,10 +1,34 @@
 <template>
-  <div class="content">
+  <div class="team-builder">
     <div class="nav">
-      <div v-for="(v,i) in innerValue"
-        class="nav-child member" @click="editMember(v)">{{ v.profile.name }}</div>
-      <div class="nav-child member" @click="addMember">＋追加</div>
-      <div class="nav-child export" @click="exportMode">コード</div>
+      <div class="team team-1">
+        <div class="team-header">左側チーム</div>
+        <div class="member">
+          <draggable v-model="innerTeam1" handle=".grip">
+            <div v-for="(v,i) in innerTeam1" class="member-child"
+              @click="editMember(v)">
+              <div class="grip">＝</div>
+              <div class="label">{{ v.profile.name }}</div>
+              <div class="del" @click="removeMember(key, i)">×</div>
+            </div>
+          </draggable>
+          <div class="member-child" @click="addMember('innerTeam1')">＋追加</div>
+        </div>
+        <div class="export">
+          <a @click="exportMode('innerTeam1')">コード</a>
+        </div>
+      </div>
+      <div class="team team-2">
+        <div class="team-header">右側チーム</div>
+        <div class="member">
+          <div v-for="(v,i) in innerTeam2"
+            class="member-child" @click="editMember(v)">{{ v.profile.name }}</div>
+          <div class="member-child" @click="addMember('innerTeam2')">＋追加</div>
+        </div>
+        <div class="export">
+          <a @click="exportMode('innerTeam2')">コード</a>
+        </div>
+      </div>
     </div>
     <div v-if="mode == 'member'"
       class="main">
@@ -34,11 +58,20 @@
           </draggable>
         </div>
       </div>
-      <div class="material">
-        <div v-if="submode == 'skill'">
-          <div v-for="v in cardList" 
-            class="material-child" @click="selectSkill(v.value)">{{ v.text }}</div>
-        </div>
+      <div v-if="submode == 'skill'"
+        class="material">
+        <div v-for="v in cardList" 
+          class="material-child" @click="showSkill(v)">{{ v.text }}</div>
+      </div>
+      <div v-else-if="submode == 'skill-detail'"
+        class="material">
+        <div class="btn" @click="selectSkill(subselect.value)">○決定</div>
+        <div class="btn" @click="submode = 'skill'">⇐戻る</div>
+        <card class="material-card" 
+          :command="subselect.value" />
+      </div>
+      <div v-else
+        class="material">
       </div>
     </div>
     <div v-else-if="mode == 'export'"
@@ -46,8 +79,9 @@
       <div class="json">
         <textarea rows="20" v-model="textValue" />
         <div>
-          <div class="btn" @click="importText">インポート</div>
+          現在の設定のコードです。メモしたコードを貼り付けてから「インポート」すると設定を反映します。
         </div>
+        <div class="btn" @click="importText(key)">インポート</div>
       </div>
     </div>
   </div>
@@ -57,27 +91,41 @@
 import cardList from '@/assets/cardlist.json'
 import _ from 'lodash'
 import draggable from 'vuedraggable'
+import Card from '@/components/Card'
 export default {
+  props: {
+    team1: { type:Array, default:()=>[] },
+    team2: { type:Array, default:()=>[] }
+  },
   computed: {
     cardList () { return cardList }
   },
   components: {
-    draggable
+    draggable,
+    Card
   },
   data () {
     return {
-      innerValue: [],
-      mode: 'export',
-      submode: null,
-      subcursor: -1,
-      edit: null,
+      innerTeam1: this.team1,
+      innerTeam2: this.team2,
+      mode: null,
 
-      textValue: '[]',
+      submode: null,
+      subcursor: -1, //操作対象
+      subselect: null, //選択候補
+
+      edit: null,
+      key: null,
+
+      textValue: '',
     }
   },
+  mounted () {
+    this.exportMode('innerTeam1')
+  },
   methods: {
-    addMember () {
-      this.innerValue.push({
+    addMember (key) {
+      this[key].push({
         profile: {name:"テストさん"},
         skill: [],
         ability: [{
@@ -87,18 +135,25 @@ export default {
         }],
         ai: []
       })
-      this.textValue = JSON.stringify(this.innerValue, null, 2)
+      this.textValue = JSON.stringify(this[key], null, 2)
+      this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
     },
     editMember (v) {
       this.mode = 'member'
       this.edit = v
     },
-    exportMode () {
-      this.textValue = JSON.stringify(this.innerValue, null, 2)
-      this.mode = 'export'
+    removeMember (k, i) {
+      this[k].splice(i, 1)
+      this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
     },
-    importText () {
-      this.innerValue = JSON.parse(this.textValue)
+    exportMode (key) {
+      this.textValue = JSON.stringify(this[key], null, 2)
+      this.mode = 'export'
+      this.key = key
+    },
+    importText (key) {
+      this[key] = JSON.parse(this.textValue)
+      this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
     },
     listSkill (cur) {
       this.subcursor = cur
@@ -124,11 +179,18 @@ export default {
         let ai = _.find(this.edit.ai, { arguments:{rid:this.edit.skill[this.subcursor].RID} })
         ai["@call"] = `${val}.ai`
       }
+      this.submode = null
+      this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
+    },
+    showSkill (val) {
+      this.submode = 'skill-detail'
+      this.subselect = val
     },
     removeSkill (i) {
       let rid = this.edit.skill[i].RID
       this.edit.skill.splice(i,1)
       this.edit.ai = _.reject(this.edit.ai, { arguments:{rid} })
+      this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
     },
     skillInEdit (RID) {
       return _.find(this.edit.skill, { RID })
@@ -156,24 +218,56 @@ div {
   }
 }
 //レイアウト
-.content {
-  position: fixed;
-  top: 0;
-  bottom: 0;
+.team-builder {
 
   .nav {
-    width: 100%;
+    position: relative;
+    width: 800px;
     display: flex;
 
-    .nav-child {
-      padding: 10px 20px;
-      cursor: pointer;
+    .team {
+      width: 50%;
+
+      // .member {
+      //   display: flex;
+      //   flex-wrap: wrap;
+      // }
+      &.team-1 { border: 1px solid #F99; }
+      &.team-2 { border: 1px solid #99F; }
+
+      .team-header {
+        font-size: small;
+      }
+      .member {
+        margin: 5px 0;
+
+        &::after {
+          content: "";
+          display: block;
+          padding-top: 1.5rem;
+        }
+      }
+      .export {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+
+    .member-child {
+      border: 1px solid #CCC;
+
+      display: flex;
+      justify-content: space-between;
+
+      .grip { width:20px; cursor: grab; }
+      .del { width:20px; cursor: pointer; }
+      .label { width:calc(100% - 40px); cursor: pointer; }
     }
   }
 
   .main {
     display: flex;
-    height: calc(100% - 3.5rem);
+    height: 400px;
 
     .character {
       width: 400px;
@@ -189,7 +283,7 @@ div {
 
           .grip { width:20px; cursor: grab; }
           .del { width:20px; cursor: pointer; }
-          .label { width:calc(100% - 40px); }
+          .label { width:calc(100% - 40px); cursor: pointer; }
         }
       }
     }
@@ -206,6 +300,10 @@ div {
         .focus: {
           background-color: #CCC;
         }        
+      }
+      .material-card {
+        width: 300px;
+        margin: 20px;
       }
     }
     .json {

@@ -1,10 +1,10 @@
 
 export const pt1 = [{
-  profile: {name:"AAA"},
+  profile: {name:"パンチキャット"},
   skill: [{
     Cmd: "test-cmd/smash",
     Arg: { Lv:1 },
-    RID: "S1",
+    RID: "S0",
   }],
   ability: [{
     Cmd: "test-cmd/soul",
@@ -13,16 +13,16 @@ export const pt1 = [{
   }],
   ai: [{
     "@call":"test-cmd/smash.ai",
-    arguments: { rid: "S1", player: {"@arg":"player"} }
+    arguments: { rid: "S0", player: {"@arg":"player"} }
   }]
 }]
 
 export const pt2 = [{
-  profile: {name:"BBB"},
+  profile: {name:"ワルドッグ"},
   skill: [{
     Cmd: "test-cmd/fire",
     Arg: { Lv:1 },
-    RID: "S1",
+    RID: "S0",
   }],
   ability: [{
     Cmd: "test-cmd/soul",
@@ -31,7 +31,7 @@ export const pt2 = [{
   }],
   ai: [{
     "@call":"test-cmd/fire.ai",
-    arguments: { rid: "S1", player: {"@arg":"player"} }
+    arguments: { rid: "S0", player: {"@arg":"player"} }
   }]
 }]
 

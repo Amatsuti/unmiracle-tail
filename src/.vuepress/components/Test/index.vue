@@ -1,11 +1,10 @@
 <template>
   <white-page>
-    <div class="member">
-      <textarea rows="30" v-model="pt1json" />
-      <textarea rows="30" v-model="pt2json" />
-    </div>
+    <team-builder
+      :team1="pt1init" :team2="pt2init"
+      @input="updateTeam($event.pt1,$event.pt2)" />
+
     <div class="rule">
-      <!-- <textarea rows="30" v-model="defSkill" /> -->
       <button @click="simu" :disabled="!ok">シミュレーション</button>
     </div>
     <battle-note :code="log" :pt1="pt1" :pt2="pt2"></battle-note>
@@ -18,31 +17,35 @@ import { pt1, pt2, defSkill } from './const'
 import WhitePage from '@/components/WhitePage'
 import path from 'path'
 import { Unmiracle } from '@/wasm'
+import TeamBuilder from '@/components/TeamBuilder'
 /*eslint-disable no-undef */
 export default {
   name: 'test',
   computed: {
-    ok () { return Unmiracle.status.load }
+    ok () { return Unmiracle.status.load },
+    pt1init: ()=>pt1,
+    pt2init: ()=>pt2,
   },
   data () {
     return {
       log: [],
       pt1: [],
       pt2: [],
-      pt1json: JSON.stringify(pt1, null, 2),
-      pt2json: JSON.stringify(pt2, null, 2),
+      pt1json: pt1,
+      pt2json: pt2,
       defSkill: JSON.stringify(defSkill, null, 2)
     }
   },
   components: {
     BattleNote,
-    WhitePage
+    WhitePage,
+    TeamBuilder
   },
   methods: {
     simu () {
       this.log = Unmiracle.simu(
-        JSON.parse(this.pt1json),
-        JSON.parse(this.pt2json),
+        this.pt1json,
+        this.pt2json,
         JSON.parse(this.defSkill), 
         (log, pt1, pt2)=>{
           this.log = log
@@ -50,6 +53,10 @@ export default {
           this.pt2 = pt2
         }
       )
+    },
+    updateTeam(p1, p2) {
+      this.pt1json = p1
+      this.pt2json = p2
     }
   }
 }

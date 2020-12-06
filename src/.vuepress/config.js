@@ -44,13 +44,7 @@ module.exports = {
     nav: [
       {
         text: 'Simulator',
-        items: [{
-          text: "シミュレーター",
-          link: "/simulator/simulator.html",
-        },{
-          text: "チームビルダー",
-          link: "/simulator/team-builder.html"
-        }],
+        link: '/simulator/',
       },
       {
         text: 'Guide',
