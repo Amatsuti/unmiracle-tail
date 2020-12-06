@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[183],{655:function(o){o.exports=JSON.parse('[{"@method":"throw","args":{"dice":2},"code":[]}]')}}]);

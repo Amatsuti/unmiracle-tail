@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[41],{365:function(t,n,e){},400:function(t,n,e){"use strict";e(365)},456:function(t,n,e){"use strict";e.r(n);var s={name:"set-bg",props:{options:Object}},c=(e(400),e(43)),i=Object(c.a)(s,(function(){var t=this.$createElement;return(this._self._c||t)("div")}),[],!1,null,"3b777e24",null);n.default=i.exports}}]);
