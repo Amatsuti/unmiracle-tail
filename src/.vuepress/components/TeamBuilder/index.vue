@@ -12,7 +12,7 @@
               <div class="del" @click="removeMember(key, i)">×</div>
             </div>
           </draggable>
-          <div class="member-child" @click="addMember('innerTeam1')">＋追加</div>
+          <div class="member-child add" @click="addMember('innerTeam1')">＋追加</div>
         </div>
         <div class="export">
           <a @click="exportMode('innerTeam1')">コード</a>
@@ -21,9 +21,13 @@
       <div class="team team-2">
         <div class="team-header">右側チーム</div>
         <div class="member">
-          <div v-for="(v,i) in innerTeam2"
-            class="member-child" @click="editMember(v)">{{ v.profile.name }}</div>
-          <div class="member-child" @click="addMember('innerTeam2')">＋追加</div>
+          <div v-for="(v,i) in innerTeam2" class="member-child"
+            @click="editMember(v)">
+            <div class="grip">＝</div>
+            <div class="label">{{ v.profile.name }}</div>
+            <div class="del" @click="removeMember(key, i)">×</div>
+          </div>
+          <div class="member-child add" @click="addMember('innerTeam2')">＋追加</div>
         </div>
         <div class="export">
           <a @click="exportMode('innerTeam2')">コード</a>
@@ -228,10 +232,6 @@ div {
     .team {
       width: 50%;
 
-      // .member {
-      //   display: flex;
-      //   flex-wrap: wrap;
-      // }
       &.team-1 { border: 1px solid #F99; }
       &.team-2 { border: 1px solid #99F; }
 
@@ -259,6 +259,7 @@ div {
       display: flex;
       justify-content: space-between;
 
+      &.add { cursor: pointer; }
       .grip { width:20px; cursor: grab; }
       .del { width:20px; cursor: pointer; }
       .label { width:calc(100% - 40px); cursor: pointer; }
