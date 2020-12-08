@@ -4,22 +4,22 @@
       {{allCharacter | whoIdIs(options.player) | name }} のダイスロール！
       <span v-for="(v, i) in options.dice" :key="i" class="dice-val">
         <span v-if="v === 1">
-          <font-awesome-icon icon="dice-one" class="icon fa-1x" />
+          ⚀
         </span>
         <span v-else-if="v === 2">
-          <font-awesome-icon icon="dice-two" class="icon fa-1x" />
+          ⚁
         </span>
         <span v-else-if="v === 3">
-          <font-awesome-icon icon="dice-three" class="icon fa-1x" />
+          ⚂
         </span>
         <span v-else-if="v === 4">
-          <font-awesome-icon icon="dice-four" class="icon fa-1x" />
+          ⚃
         </span>
         <span v-else-if="v === 5">
-          <font-awesome-icon icon="dice-five" class="icon fa-1x" />
+          ⚄
         </span>
         <span v-else-if="v === 6">
-          <font-awesome-icon icon="dice-six" class="icon fa-1x" />
+          ⚅
         </span>
       </span>
       ⇒

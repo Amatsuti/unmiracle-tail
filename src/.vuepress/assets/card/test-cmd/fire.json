@@ -25,7 +25,7 @@
     }
   },
   { "@method":"action",
-    "hook": ["character.base-action"],
+    "hook": ["character.base-action", "dice.throw"],
     "args": { "action":"火炎魔法" },
     "code": [
       { "@call":"attack.1-attack",

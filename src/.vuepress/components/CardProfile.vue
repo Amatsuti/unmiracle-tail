@@ -4,7 +4,8 @@
     <div class="detail">
       <div class="profile-first">
         <div class="name">{{ cardName }}</div>
-
+        <div v-if="dice"
+          class="dice">🎲x{{ dice }}</div>
       </div>
       <div class="profile-second">
         <div class="select">
@@ -67,6 +68,7 @@ export default {
     aria () { return this.innerValue.aria },
     action () { return this.innerValue["action"] },
     etc () { return this.innerValue["etc"]||[] },
+    dice () { return this.innerValue["dice"]||0 }
   },
   data () {
     return {
@@ -113,7 +115,7 @@ export default {
     margin: 0;
   }
 
-  .card, .name, .select, .action-detail, .armor, .aria {
+  .card, .name, .select, .action-detail, .armor, .aria, .dice {
     border: solid 1px #000;
     box-sizing: border-box;
   }
@@ -125,12 +127,15 @@ export default {
     border-right: 0px;
   }
   .profile-first {
-    width: calc(100%-80px);
+    position: relative;
+
+    width: calc(100% - 80px);
 
     display: flex;
+    justify-content: space-between;
 
     .name {
-      width: 660px;
+      width: calc(100% - 100px);
       height:1.5rem;
 
       border-bottom: 0px;
@@ -139,9 +144,15 @@ export default {
 
       font-weight: bold;
     }
+    .dice {
+      width: 100px;
+
+      border-left: 0px;
+      border-bottom: 0px;
+    }
   }
   .profile-second {
-    width: calc(100%-80px);
+    width: calc(100% - 80px);
     height: calc(100% - 1.5rem);
 
     display: flex;

@@ -8,7 +8,12 @@ export const pt1 = [{
   }],
   ability: [{
     Cmd: "test-cmd/soul",
-    Arg: { Lv:1 },
+    Arg: {
+      Lv:1, HP:5,
+      STR:1, INT:0,
+      VIT:0, MND:0,
+      DEX:0, AGI:0,
+    },
     RID: "A1",
   }],
   ai: [{
@@ -26,7 +31,12 @@ export const pt2 = [{
   }],
   ability: [{
     Cmd: "test-cmd/soul",
-    Arg: { Lv:1 },
+    Arg: {
+      Lv:1, HP:5,
+      STR:0, INT:1,
+      VIT:0, MND:0,
+      DEX:0, AGI:0,
+    },
     RID: "A1",
   }],
   ai: [{

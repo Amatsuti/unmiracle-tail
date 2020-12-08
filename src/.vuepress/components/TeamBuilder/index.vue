@@ -39,7 +39,7 @@
       <div class="character">
         名前：<input type="text" v-model="edit.profile.name" />
         <div class="skill">
-          スキル
+          <div class="character-header">スキル</div>
           <draggable v-model="edit.skill" handle=".grip">
             <div v-for="(v,i) in edit.skill" :key="`skill-${v.RID}`" 
               class="skill-child" @click="listSkill(i)">
@@ -50,9 +50,21 @@
           </draggable>
           <div class="btn" @click="listSkill(-1)">＋追加</div>
         </div>
-        <div class="ability">アビリティ</div>
+        <div class="ability">
+          <div class="character-header">アビリティ</div>
+          <div class="status">
+            <div class="status-child">HP: <input type="number" v-model.number="editSoul.Arg['HP']"></div>
+            <div class="status-child"></div>
+            <div class="status-child">STR: <input type="number" v-model.number="editSoul.Arg['STR']"></div>
+            <div class="status-child">INT: <input type="number" v-model.number="editSoul.Arg['INT']" ></div>
+            <div class="status-child">VIT: <input type="number" v-model.number="editSoul.Arg['VIT']" ></div>
+            <div class="status-child">MND: <input type="number" v-model.number="editSoul.Arg['MND']" ></div>
+            <div class="status-child">DEX: <input type="number" v-model.number="editSoul.Arg['DEX']" ></div>
+            <div class="status-child">AGI: <input type="number" v-model.number="editSoul.Arg['AGI']" ></div>
+          </div>
+        </div>
         <div class="ai">
-          戦闘設定
+          <div class="character-header">戦闘設定</div>
           <draggable v-model="edit.ai" handle=".grip">
             <div v-for="(v,i) in edit.ai" :key="`ai-${v.arguments.rid}`"
               class="ai-child">
@@ -102,7 +114,8 @@ export default {
     team2: { type:Array, default:()=>[] }
   },
   computed: {
-    cardList () { return cardList }
+    cardList () { return cardList },
+    editSoul () { return this.edit&&_.find(this.edit.ability,{Cmd:"test-cmd/soul"}) }
   },
   components: {
     draggable,
@@ -134,7 +147,12 @@ export default {
         skill: [],
         ability: [{
           Cmd: "test-cmd/soul",
-          Arg: { Lv:1 },
+          Arg: {
+            Lv:1, HP:5,
+            STR:0, INT:0,
+            VIT:0, MND:0,
+            DEX:0, AGI:0,
+          },
           RID: "soul",
         }],
         ai: []
@@ -273,6 +291,8 @@ div {
     .character {
       width: 400px;
 
+      overflow-y: scroll;
+
       .skill, .ai {
         padding: 20px 0;
 
@@ -287,6 +307,26 @@ div {
           .label { width:calc(100% - 40px); cursor: pointer; }
         }
       }
+
+      .ability {
+        width: 100%;
+
+        .status {
+          position: relative;
+          width: 100%;
+
+          display: flex;
+          flex-wrap: wrap;
+
+          .status-child {
+            width:50%;
+
+            input { width:5rem; }
+          }
+        }
+      }
+
+      .character-header { font-size: small; }
     }
     .material {
       width: 400px;

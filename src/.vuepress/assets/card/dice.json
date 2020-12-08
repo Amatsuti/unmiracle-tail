@@ -1,6 +1,15 @@
 [
   { "@method": "throw",
     "args":{ "dice":2 },
-    "code":[]
+    "code":[
+      { "@call": "map.put",
+        "arguments": {
+          "to": { "@var":"test" },
+          "key": "dice",
+          "value": { "@arg":"dice" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
   }
 ]
