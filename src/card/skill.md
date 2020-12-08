@@ -31,7 +31,9 @@ title: スキル
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000m" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000n" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000o" />
+-->
 <CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
+<!--
 <CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
 <CardProfile command="00000000001KdPKW2gri4zTP078M0004" />
 <CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
@@ -40,7 +42,9 @@ title: スキル
 <CardProfile command="00000000001KdPKW2gri4zTP08L20004" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20005" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20006" />
+-->
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0002" />
+<!--
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0003" />
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0004" />
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0005" />
