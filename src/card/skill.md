@@ -33,9 +33,9 @@ title: スキル
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000o" />
 -->
 <CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
-<!--
 <CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
 <CardProfile command="00000000001KdPKW2gri4zTP078M0004" />
+<!--
 <CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20002" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20003" />

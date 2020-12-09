@@ -103,5 +103,41 @@
     "code":[
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"turnCount",
+    "args":{ "turnCount":0 },
+    "code":[
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"turn-count", "as":"string" },
+          "value": { "@arg":"turnCount" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"fmt", "as":"string" },
+          "map": {
+            "turn-count": { "@var":"turn-count" }
+          },
+          "value": "{turn-count}ターン以降"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": { "@var":"fmt" },
+          "priority": 1000,
+          "value": 2000
+        }
+      },
+      { "@call": "code/text.put",
+        "arguments": {
+          "to": { "@var":"text" },
+          "key": "ai",
+          "value": { "@var":"st" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
   }
 ]

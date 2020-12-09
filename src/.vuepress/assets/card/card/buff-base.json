@@ -1,0 +1,44 @@
+[
+  {
+    "@method": "info",
+    "call": "card/common.info",
+    "args": {
+      "name":null,
+      "memo":null,
+      "icon":null,
+      "type":"buff"
+    }
+  },
+  {
+    "@method": "init",
+    "call": "card/common.init",
+    "args": {
+      "key":null,
+      "num":1,
+      "max":1
+    }
+  },
+  {
+    "@method": "entry-event",
+    "code": [],
+    "args": {}
+  },
+  {
+    "@method": "add",
+    "code": [],
+    "args": {
+    }
+  },
+  {
+    "@method": "next-count",
+    "code": [],
+    "args": {
+    }
+  },
+  {
+    "@method": "remove",
+    "code": [],
+    "args": {
+    }
+  }
+]
