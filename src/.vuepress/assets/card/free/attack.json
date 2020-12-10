@@ -68,15 +68,47 @@
           "value": { "@arg":"INTRatio" }
         }
       },
+      { "@call": "number.assign",
+        "arguments": {
+          "to": { "@var":"chainAttack", "as":"number" },
+          "value": { "@calc":"@chainAttack + 1" }
+        }
+      },
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"chain-attack", "as":"string" },
+          "value": { "@var":"chainAttack" }
+        }
+      },
+      { "@call": "number.in-range",
+        "arguments": {
+          "ok": { "@var":"ok-chainAttack", "as":"bool" },
+          "more": 1,
+          "value": { "@arg":"chainAttack" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "@hook": ["bool.switch"],
+          "switch": {"@var":"ok-chainAttack" },
+
+          "to": { "@var":"chain-attack" },
+          "map": {
+            "num": { "@var":"chain-attack" }
+          },
+          "value": "x{num}"
+        }
+      },
       { "@call": "string.format",
         "arguments": {
           "to": { "@var":"fmt", "as":"string" },
           "map": {
             "damage": { "@var":"ADamage" },
             "ratio": { "@var":"INTRatio" },
-            "target": { "@arg":"target" }
+            "target": { "@arg":"target" },
+            "num": { "@var":"chain-attack" }
           },
-          "value": "{target}に魔法攻撃(威力{damage}x{ratio})します"
+          "value": "{target}に魔法攻撃(威力{damage}x{ratio}){num}します"
         }
       },
       { "@call": "code/text/sentence.put",
