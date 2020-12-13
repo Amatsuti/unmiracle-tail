@@ -21,7 +21,7 @@
     ]
   },
   { "@method":"base-action",
-    "args":{ "player":"自分", "target":"対象" },
+    "args":{ },
     "code":[
       { "@define": ["action", "array", []] }, 
       { "@goto":"hook" },

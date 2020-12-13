@@ -70,31 +70,24 @@
       },
       { "@call": "number.assign",
         "arguments": {
-          "to": { "@var":"chainAttack", "as":"number" },
+          "to": { "@var":"num-chainAttack", "as":"number" },
           "value": { "@calc":"@chainAttack + 1" }
         }
       },
       { "@call": "number.to-string",
         "arguments": {
-          "to": { "@var":"chain-attack", "as":"string" },
-          "value": { "@var":"chainAttack" }
-        }
-      },
-      { "@call": "number.in-range",
-        "arguments": {
-          "ok": { "@var":"ok-chainAttack", "as":"bool" },
-          "more": 1,
-          "value": { "@arg":"chainAttack" }
+          "to": { "@var":"str-chainAttack", "as":"string" },
+          "value": { "@var":"num-chainAttack" }
         }
       },
       { "@call": "string.format",
+        "hook": [["number.in-range",{ "value":{"@arg":"chainAttack"} }]],
         "arguments": {
-          "@hook": ["bool.switch"],
-          "switch": {"@var":"ok-chainAttack" },
+          "more": 0,
 
-          "to": { "@var":"chain-attack" },
+          "to": { "@var":"chainAttack", "as":"string" },
           "map": {
-            "num": { "@var":"chain-attack" }
+            "num": { "@var":"str-chainAttack" }
           },
           "value": "x{num}"
         }
@@ -106,7 +99,7 @@
             "damage": { "@var":"ADamage" },
             "ratio": { "@var":"INTRatio" },
             "target": { "@arg":"target" },
-            "num": { "@var":"chain-attack" }
+            "num": { "@var":"chainAttack" }
           },
           "value": "{target}に魔法攻撃(威力{damage}x{ratio}){num}します"
         }
