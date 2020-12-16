@@ -102,13 +102,7 @@ module.exports = {
         }
       ],
       '/card/': [
-        {
-          title: 'スキル',
-          collapsable: false,
-          children: [
-            'skill',
-          ]
-        }
+        'skill'
       ],
     }
   },
