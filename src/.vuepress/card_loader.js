@@ -1,15 +1,30 @@
 //jsonファイルを分割遅延ロードするLoader
-var ctx = require.context("@/assets/card", true, /\.json$/, "lazy")
-var loader = {
+var cardCtx = require.context("@/assets/card", true, /\.json$/, "lazy")
+var card = {
   fetch:function(path, cb) {
     this[path]().then(cb) //promise
   }
 }
-ctx.keys().map(_path => {
+cardCtx.keys().map(_path => {
   var pathary = _path.split("/")
   pathary.shift()
   var p = pathary.join("/")
   var name = p.split(".").shift()
-  loader[name] = ()=>ctx(_path)
+  card[name] = ()=>cardCtx(_path)
 })
-export default loader
+
+var textCtx = require.context("@/assets/text", true, /\.json$/, "lazy")
+var text = {
+  fetch:function(path, cb) {
+    this[path]().then(cb) //promise
+  }
+}
+textCtx.keys().map(_path => {
+  var pathary = _path.split("/")
+  pathary.shift()
+  var p = pathary.join("/")
+  var name = p.split(".").shift()
+  text[name] = ()=>textCtx(_path)
+})
+
+export { card, text }

@@ -1,5 +1,5 @@
 /*eslint-disable no-undef,no-unused-vars */
-import loader from './card_loader'
+import { card, text } from './card_loader'
 require("wasm-exec");
 
 // WebAssembly.instantiateStreamingがない場合のポリフィル
@@ -11,7 +11,8 @@ if (!WebAssembly.instantiateStreaming) {
 }
 
 let Unmiracle = global.Unmiracle = {
-  list: loader,
+  list: card,
+  text,
   simu (){},
   getText (){},
   status: { load:false }

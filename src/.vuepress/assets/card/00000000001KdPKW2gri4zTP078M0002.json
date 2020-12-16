@@ -1,8 +1,6 @@
 [{
   "@extend": "card/base"
 }, {
-  "@define": ["name", "string", "火炎投射"]
-}, {
   "@method": "init",
   "args": {
     "key": "00000000001KdPKW2gri4zTP078M0002",

@@ -3,10 +3,13 @@ title: スキル
 # sidebar: false
 ---
 
-# 攻撃系
+# 戦士系
 
 <CardProfile command="test-cmd/smash" />
-<CardProfile command="test-cmd/fire" />
+<CardProfile command="test-cmd/guard" />
+<CardProfile command="test-cmd/avoid" />
+<CardProfile command="test-cmd/protect" />
+<CardProfile command="test-cmd/attack-stance" />
 <!--<CardProfile command="00000000001KdPKW2gri4zTP02Eo0002" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA0002" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA0003" />
@@ -32,9 +35,9 @@ title: スキル
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000n" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000o" />
 -->
-<CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
+<!-- <CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
 <CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
-<CardProfile command="00000000001KdPKW2gri4zTP078M0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0004" /> -->
 <!--
 <CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20002" />
@@ -124,9 +127,11 @@ title: スキル
 <CardProfile command="00000000001Kemth17VFNzqU0cY80005" />
 <CardProfile command="00000000001KgHvr0C2M78ex04jg0002" /> -->
 
-# 防御系
+# 魔法系
 
-<CardProfile command="test-cmd/guard" />
-<CardProfile command="test-cmd/protect" />
-<CardProfile command="test-cmd/avoid" />
+<CardProfile command="test-cmd/fire" />
 <CardProfile command="test-cmd/barrier" />
+<CardProfile command="test-cmd/heal" />
+
+
+
