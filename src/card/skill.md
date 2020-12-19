@@ -1,9 +1,6 @@
----
-title: スキル
-# sidebar: false
----
+# スキル
 
-# 戦士系
+## 戦士系
 
 <CardProfile command="test-cmd/smash" />
 <CardProfile command="test-cmd/guard" />
@@ -127,7 +124,7 @@ title: スキル
 <CardProfile command="00000000001Kemth17VFNzqU0cY80005" />
 <CardProfile command="00000000001KgHvr0C2M78ex04jg0002" /> -->
 
-# 魔法系
+## 魔法系
 
 <CardProfile command="test-cmd/fire" />
 <CardProfile command="test-cmd/barrier" />

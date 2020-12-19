@@ -61,7 +61,7 @@ module.exports = {
         },{
           text: "Unmiracle",
           items: [{
-            text: "クラス",
+            text: "リファレンス",
             link: "/class/",
           }]
         }]
@@ -78,7 +78,9 @@ module.exports = {
           collapsable: false,
           children: [
             '',
+            'rule',
             'team-edit',
+            'introduction'
           ]
         }
       ],
@@ -93,7 +95,7 @@ module.exports = {
       ],
       '/class/': [
         {
-          title: 'クラス',
+          title: 'リファレンス',
           collapsable: false,
           children: [
             '',
