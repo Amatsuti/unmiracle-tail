@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[205],{676:function(a){a.exports=JSON.parse('[{"@method":"add","args":{},"code":[{"@call":[{"@arg":"buff"},"add"],"arguments":{"dice":{"@arg":"dice"},"player":{"@arg":"player"},"target":{"@arg":"target"},"target2":{"@arg":"target2"}}}]}]')}}]);
