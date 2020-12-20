@@ -70,7 +70,8 @@
           "value": { "@arg":"onHit" },
           "args": {
             "player": { "@arg":"player" },
-            "target": { "@arg":"target" }
+            "target": { "@arg":"target" },
+            "dice": { "@arg":"dice" }
           }
         }
       }

@@ -2,12 +2,13 @@
 
 ## 戦士系
 
-<CardProfile command="test-cmd/smash" />
+<!-- <CardProfile command="test-cmd/smash" />
 <CardProfile command="test-cmd/guard" />
 <CardProfile command="test-cmd/avoid" />
 <CardProfile command="test-cmd/protect" />
-<CardProfile command="test-cmd/attack-stance" />
-<!--<CardProfile command="00000000001KdPKW2gri4zTP02Eo0002" />
+<CardProfile command="test-cmd/attack-stance" /> -->
+<CardProfile command="00000000001KdPKW2gri4zTP02Eo0002" />
+<!--
 <CardProfile command="00000000001KdPKW2gri4zTP06yA0002" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA0003" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA0004" />
@@ -31,25 +32,11 @@
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000m" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000n" />
 <CardProfile command="00000000001KdPKW2gri4zTP06yA000o" />
+<CardProfile command="00000000001Ke9aG3TYufqYy00a80002" />
 -->
-<!-- <CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
-<CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
-<CardProfile command="00000000001KdPKW2gri4zTP078M0004" /> -->
-<!--
-<CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
 <CardProfile command="00000000001KdPKW2gri4zTP08L20002" />
-<CardProfile command="00000000001KdPKW2gri4zTP08L20003" />
-<CardProfile command="00000000001KdPKW2gri4zTP08L20004" />
-<CardProfile command="00000000001KdPKW2gri4zTP08L20005" />
-<CardProfile command="00000000001KdPKW2gri4zTP08L20006" />
--->
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0002" />
-<!--
 <CardProfile command="00000000001KdPKW2gri4zTP0a2s0003" />
-<CardProfile command="00000000001KdPKW2gri4zTP0a2s0004" />
-<CardProfile command="00000000001KdPKW2gri4zTP0a2s0005" />
-<CardProfile command="00000000001KdPKW2gri4zTP0a2s0006" />
-<CardProfile command="00000000001KdPKW2gri4zTP0a2s0007" />
 <CardProfile command="00000000001KdPKW2gri4zTP0bo40002" />
 <CardProfile command="00000000001KdPKW2gri4zTP0bo40003" />
 <CardProfile command="00000000001KdPKW2gri4zTP0bo40004" />
@@ -59,14 +46,42 @@
 <CardProfile command="00000000001KdPKW2gri4zTP0bo40008" />
 <CardProfile command="00000000001KdPKW2gri4zTP0bo40009" />
 <CardProfile command="00000000001KdPKW2gri4zTP0bo4000a" />
-<CardProfile command="00000000001KdPKW2gri4zTP0caY0002" /> -->
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0002" />
 <CardProfile command="00000000001KdPKW2gri4zTP0caY0003" />
-<!-- <CardProfile command="00000000001KdPKW2gri4zTP0caY0004" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0002" />
+<!-- 
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0003" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0004" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0005" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0006" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0007" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0008" />
+<CardProfile command="00000000001Kemth17VFNzqU0cXO0009" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80002" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80003" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80004" />
+<CardProfile command="00000000001Kemth17VFNzqU0cY80005" />
+<CardProfile command="00000000001KgHvr0C2M78ex04jg0002" /> -->
+
+## 魔法系
+
+<!-- <CardProfile command="test-cmd/fire" />
+<CardProfile command="test-cmd/barrier" />
+<CardProfile command="test-cmd/heal" /> -->
+<CardProfile command="00000000001KdPKW2gri4zTP078M0002" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0003" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP078M0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20003" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20004" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0004" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0005" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0006" />
+<CardProfile command="00000000001KdPKW2gri4zTP0a2s0007" />
 <CardProfile command="00000000001KdPKW2gri4zTP0caY0005" />
 <CardProfile command="00000000001KdPKW2gri4zTP0caY0006" />
 <CardProfile command="00000000001KdPKW2gri4zTP0caY0007" />
 <CardProfile command="00000000001KdPKW2gri4zTP0caY0008" />
-<CardProfile command="00000000001Ke9aG3TYufqYy00a80002" />
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww0002" />
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww0003" />
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww0004" />
@@ -91,7 +106,16 @@
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww000n" />
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww000o" />
 <CardProfile command="00000000001Ke9aG3TYufqYy08Ww000p" />
+
+## 補助系
+
+<CardProfile command="00000000001KdPKW2gri4zTP0caY0004" />
 <CardProfile command="00000000001Ke9aG3TYufqYy0d2Y0002" />
+
+## 隠者系
+
+<CardProfile command="00000000001KdPKW2gri4zTP08L20005" />
+<CardProfile command="00000000001KdPKW2gri4zTP08L20006" />
 <CardProfile command="00000000001Kemth17VFNzqU0aW80002" />
 <CardProfile command="00000000001Kemth17VFNzqU0aW80003" />
 <CardProfile command="00000000001Kemth17VFNzqU0aW80004" />
@@ -110,25 +134,4 @@
 <CardProfile command="00000000001Kemth17VFNzqU0aW8000h" />
 <CardProfile command="00000000001Kemth17VFNzqU0aW8000i" />
 <CardProfile command="00000000001Kemth17VFNzqU0aW8000j" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0002" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0003" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0004" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0005" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0006" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0007" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0008" />
-<CardProfile command="00000000001Kemth17VFNzqU0cXO0009" />
-<CardProfile command="00000000001Kemth17VFNzqU0cY80002" />
-<CardProfile command="00000000001Kemth17VFNzqU0cY80003" />
-<CardProfile command="00000000001Kemth17VFNzqU0cY80004" />
-<CardProfile command="00000000001Kemth17VFNzqU0cY80005" />
-<CardProfile command="00000000001KgHvr0C2M78ex04jg0002" /> -->
-
-## 魔法系
-
-<CardProfile command="test-cmd/fire" />
-<CardProfile command="test-cmd/barrier" />
-<CardProfile command="test-cmd/heal" />
-
-
 

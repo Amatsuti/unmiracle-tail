@@ -1,4 +1,6 @@
-[{
+[
+{ "@define": ["name", "string", "火炎放射"]},
+{
   "@extend": "card/base"
 }, {
   "@method": "init",

@@ -137,5 +137,37 @@
       },
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"equip-buff",
+    "args":{
+      "buffCommand": "card/buff-base"
+    },
+    "hook":["common.print-argument"],
+    "code":[
+      { "@call": [{"@arg":"buffCommand"}, "add"],
+        "arguments": {
+          "buff-name": { "@var":"name", "as":"string" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"fmt", "as":"string" },
+          "map": {
+            "name": { "@var":"name" }
+          },
+          "value": "{name}状態の"
+        }
+      },
+      { "@define": ["token", "code/text/word", {
+        "M": { "@var":"fmt" }
+      }] },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@arg":"current" },
+          "value": { "@var":"token" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
   }
 ]

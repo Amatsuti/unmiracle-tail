@@ -1,0 +1,5 @@
+[
+  { "@method":"normal-heal",
+    "call":"heal.1-heal"
+  }
+]

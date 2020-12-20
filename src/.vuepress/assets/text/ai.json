@@ -139,5 +139,8 @@
       },
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"0-time",
+    "call":"ai.disabled"
   }
 ]

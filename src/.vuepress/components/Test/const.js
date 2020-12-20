@@ -2,7 +2,7 @@
 export const pt1 = [{
   profile: {name:"パンチキャット"},
   skill: [{
-    Cmd: "test-cmd/smash",
+    Cmd: "00000000001KdPKW2gri4zTP0caY0002",
     Arg: { Lv:1 },
     RID: "S0",
   }],
@@ -17,7 +17,7 @@ export const pt1 = [{
     RID: "A1",
   }],
   ai: [{
-    "@call":"test-cmd/smash.ai",
+    "@call":"00000000001KdPKW2gri4zTP0caY0002.ai",
     arguments: { rid: "S0", player: {"@arg":"player"} }
   }]
 }]
@@ -25,7 +25,7 @@ export const pt1 = [{
 export const pt2 = [{
   profile: {name:"ワルドッグ"},
   skill: [{
-    Cmd: "test-cmd/fire",
+    Cmd: "00000000001KdPKW2gri4zTP078M0002",
     Arg: { Lv:1 },
     RID: "S0",
   }],
@@ -40,7 +40,7 @@ export const pt2 = [{
     RID: "A1",
   }],
   ai: [{
-    "@call":"test-cmd/fire.ai",
+    "@call":"00000000001KdPKW2gri4zTP078M0002.ai",
     arguments: { rid: "S0", player: {"@arg":"player"} }
   }]
 }]
@@ -53,5 +53,9 @@ export const defSkill = [{
   Cmd: "test-cmd/wait",
   Arg: { Lv:1 },
   RID: "wait",
+},{
+  Cmd: "test-cmd/falt",
+  Arg: { Lv:1 },
+  RID: "falt",
 }]
 

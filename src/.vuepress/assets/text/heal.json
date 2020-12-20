@@ -1,28 +1,28 @@
 [
-  { "@method": "1-attack",
+  { "@method": "1-heal",
     "args": { },
     "code": [
       { "@call": "number.to-string",
         "arguments": {
-          "to": { "@var":"ADamage", "as":"string" },
-          "value": { "@arg":"ADamage" }
+          "to": { "@var":"AHeal", "as":"string" },
+          "value": { "@arg":"AHeal" }
         }
       },
       { "@call": "number.to-string",
         "arguments": {
-          "to": { "@var":"STRRatio", "as":"string" },
-          "value": { "@arg":"STRRatio" }
+          "to": { "@var":"MNDRatio", "as":"string" },
+          "value": { "@arg":"MNDRatio" }
         }
       },
       { "@call": "string.format",
         "arguments": {
           "to": { "@var":"fmt", "as":"string" },
           "map": {
-            "damage": { "@var":"ADamage" },
-            "ratio": { "@var":"STRRatio" },
+            "damage": { "@var":"AHeal" },
+            "ratio": { "@var":"MNDRatio" },
             "target": { "@arg":"target" }
           },
-          "value": "{target}に攻撃(威力{damage}x{ratio})します"
+          "value": "{target}のHPを回復(威力{damage}x{ratio}MND)します"
         }
       },
       { "@call": "code/text/sentence.put",
@@ -37,16 +37,6 @@
         "arguments": {
           "to": { "@var":"action" },
           "value": { "@var":"st" }
-        }
-      },
-      { "@call": "code.execute",
-        "arguments": {
-          "value": { "@arg":"onHit" },
-          "args": {
-            "player": { "@arg":"player" },
-            "target": { "@arg":"target" },
-            "dice": { "@arg":"dice" }
-          }
         }
       }
     ]

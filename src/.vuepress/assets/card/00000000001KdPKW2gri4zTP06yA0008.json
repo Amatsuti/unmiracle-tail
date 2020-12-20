@@ -30,7 +30,7 @@
     "type": "debuff-physical"
   },
   "code": [],
-  "hook": ["common.print-argument", "buff.add"]
+  "hook": ["buff.add"]
 }, {
   "@method": "next-count",
   "args": {
@@ -49,9 +49,6 @@
       "chainDelay": 0,
       "critical": 0,
       "criticalDamageRatio": 1.5,
-      "dice": {
-        "@arg": "dice"
-      },
       "dodge": 1000,
       "hit": 1000,
       "ignoreHit": 1,

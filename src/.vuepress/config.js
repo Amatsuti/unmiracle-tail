@@ -131,6 +131,7 @@ module.exports = {
         filename: 'cardlist.json',
         path: path.join(process.cwd(), 'src/.vuepress/assets'),
         includePath: path.join(process.cwd(), 'src/.vuepress/assets/card'),
+        exclude: /test-cmd/,
       }])
   }
 }
