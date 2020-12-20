@@ -17,3 +17,8 @@ $ npm i
 $ npm run dev # Server localhost:8080
 $ npm run electron-pack # build desktop application
 ```
+
+# License
+
+MIT(limited)
+main.wasmのリバースエンジニアリング・改変禁止
