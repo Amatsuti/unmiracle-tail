@@ -3,7 +3,10 @@
     <div class="card"></div>
     <div class="detail">
       <div class="profile-first">
-        <div class="name">{{ cardName }}</div>
+        <div class="name">
+          {{ cardName }}
+          <div class="command">{{command}}</div>
+        </div>
         <div v-if="dice"
           class="dice">🎲x{{ dice }}</div>
       </div>
@@ -139,10 +142,21 @@ export default {
       height:1.5rem;
 
       border-bottom: 0px;
-
       padding: 0 5px;
 
       font-weight: bold;
+
+      display: flex;
+      justify-content: space-between;
+
+      .command {
+        display: inline-block;
+        padding: 0 5px;
+
+        font-size: smaller;
+        font-weight: normal;
+        color: #CCC;
+      }
     }
     .dice {
       width: 100px;

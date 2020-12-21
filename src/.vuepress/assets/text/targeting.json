@@ -142,7 +142,6 @@
     "args":{
       "buffCommand": "card/buff-base"
     },
-    "hook":["common.print-argument"],
     "code":[
       { "@call": [{"@arg":"buffCommand"}, "add"],
         "arguments": {

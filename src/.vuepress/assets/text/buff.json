@@ -34,5 +34,92 @@
       },
       { "@goto":"hook" }
     ]
+  },
+  { "@method":"1-add-power",
+    "args":{ },
+    "code":[
+      { "@call":"map.get",
+        "arguments": {
+          "to": { "@var":"color", "as":"string" },
+          "key": {"@arg":"color"},
+          "value": {
+            "a": "無",
+            "r": "赤", "b": "青", "y": "黄",
+            "g": "緑", "s": "茶",
+            "w": "白", "d": "黒"
+          }
+        }
+      },
+      { "@call":"map.get",
+        "arguments": {
+          "to": { "@var":"type", "as":"string" },
+          "key": {"@arg":"type"},
+          "value": {
+            "buff-physical": "強化肉体",
+            "debuff-physical": "弱体肉体",
+            "buff-magic": "強化魔法",
+            "debuff-magic": "弱体魔法",
+            "buff-stance": "強化体勢",
+            "debuff-stance": "弱体体勢",
+            "buff-mental": "強化精神",
+            "debuff-mental": "弱体精神",
+            "debuff-cooltime": "CT"
+          }
+        }
+      },
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"power", "as":"string" },
+          "value": { "@calc":"@power * 1" }
+        }
+      },
+      { "@call": "string.format",
+        "hook": [["number.in-range",{ "value":{"@arg":"power"} }]],
+        "arguments": {
+          "power": { "@arg":"power" },
+          "less": 0,
+
+          "to": { "@var":"fmt", "as":"string" },
+          "map": {
+            "target": { "@arg":"target" },
+            "color": { "@var":"color" },
+            "type": { "@var":"type" },
+            "power": { "@var":"power" }
+          },
+          "value": "{target}の{color}{type}状態を{power}弱体します"
+        }
+      },
+      { "@call": "string.format",
+        "hook": [["number.in-range",{ "value":{"@arg":"power"} }]],
+        "arguments": {
+          "power": { "@arg":"power" },
+          "more": 0,
+
+          "to": { "@var":"fmt" },
+          "map": {
+            "target": { "@arg":"target" },
+            "color": { "@var":"color" },
+            "type": { "@var":"type" },
+            "power": { "@var":"power" }
+          },
+          "value": "{target}の{color}{type}状態を{power}強化します"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": { "@var":"fmt" },
+          "priority": 1000,
+          "value": 1000
+        }
+      },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@var":"action" },
+          "value": { "@var":"st" }
+        }
+      },
+      { "@goto":"hook" }
+    ]
   }
 ]

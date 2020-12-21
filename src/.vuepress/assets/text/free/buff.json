@@ -11,5 +11,9 @@
         }
       }
     ]
+  },
+  { "@method":"add-power",
+    "call": "buff.1-add-power",
+    "args":{ "opr":"layer-status.exp2" }
   }
 ]
