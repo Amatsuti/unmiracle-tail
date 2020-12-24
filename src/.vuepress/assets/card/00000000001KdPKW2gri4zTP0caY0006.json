@@ -74,9 +74,6 @@
       "STRRatio": 0,
       "VITRatio": 0,
       "buff": "00000000001KdPKW2gri4zTP06yA000f",
-      "dice": {
-        "@arg": "dice"
-      },
       "player": {
         "@arg": "player"
       },

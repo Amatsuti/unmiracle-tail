@@ -1,0 +1,32 @@
+[
+  { "@method":"barrier",
+    "args":{ "HP":1, "Buffer":1000 },
+    "code":[
+      { "@call":"passive.barrier",
+        "arguments": {
+          "target": { "@arg":"target" },
+          "buff": { "@arg":"buff" },
+          "profile":{},
+          "skill":[],
+          "ability": [{
+            "RID":"a1",
+            "Cmd":"barrier",
+            "Arg":{
+              "HP":{ "@arg":"HP" },
+              "Buffer":{ "@arg":"Buffer" }
+            }
+          }],
+          "ai":[]
+        }
+      }
+    ]
+  },
+  { "@method":"buff-barrier",
+    "call": "free/passive.barrier",
+    "args":{ }
+  },
+  { "@method":"protect",
+    "call": "passive.protect",
+    "args":{ "ratio":1000 }
+  }
+]

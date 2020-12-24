@@ -1,6 +1,6 @@
 [
   { "@method":"add",
-    "args":{ },
+    "args":{ "dice":0 },
     "code":[
       { "@call":[{"@arg":"buff"},"add"],
         "arguments": {
