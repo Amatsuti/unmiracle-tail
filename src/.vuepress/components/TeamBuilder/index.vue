@@ -9,7 +9,7 @@
               @click="editMember(v)">
               <div class="grip">＝</div>
               <div class="label">{{ v.profile.name }}</div>
-              <div class="del" @click="removeMember(key, i)">×</div>
+              <div class="del" @click="removeMember('innerTeam1', i)">×</div>
             </div>
           </draggable>
           <div class="member-child add" @click="addMember('innerTeam1')">＋追加</div>
@@ -25,7 +25,7 @@
             @click="editMember(v)">
             <div class="grip">＝</div>
             <div class="label">{{ v.profile.name }}</div>
-            <div class="del" @click="removeMember(key, i)">×</div>
+            <div class="del" @click="removeMember('innerTeam2', i)">×</div>
           </div>
           <div class="member-child add" @click="addMember('innerTeam2')">＋追加</div>
         </div>
