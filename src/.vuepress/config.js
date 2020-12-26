@@ -104,7 +104,8 @@ module.exports = {
         }
       ],
       '/card/': [
-        'skill'
+        'skill',
+        'buff'
       ],
     }
   },

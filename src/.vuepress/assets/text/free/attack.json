@@ -78,6 +78,7 @@
     ]
   },
   { "@method": "buff-physical-attack",
+    "call": "free/attack.physical-attack",
     "args": { "PowerRatio":0.0 }
   },
   { "@method": "magical-attack",
@@ -159,6 +160,7 @@
     ]
   },
   { "@method": "buff-magical-attack",
+    "call": "free/attack.magical-attack",
     "args": { "PowerRatio":0.0 }
   }
 ]

@@ -40,5 +40,8 @@
         }
       }
     ]
+  },
+  { "@method":"passive-action",
+    "code":[]
   }
 ]

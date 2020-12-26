@@ -1,1 +1,86 @@
-[{"@extend":"card/buff-base"},{"@method":"init","args":{"key":"00000000001KdPKW2gri4zTP06yA000k","max":1,"num":1},"call":"card/base.init"},{"@method":"info","args":{"icon":null,"memo":"","name":"毒","type":"buff"},"call":"card/buff-base.info"},{"@method":"add","args":{"color":"d","command":{"@self":"class-path"},"length":4,"mode":"extension","name":"毒","type":"debuff-physical"},"code":[],"hook":["buff2.add"]},{"@method":"next-count","args":{"action":"毒"},"code":[{"@call":"free/attack.buff-physical-attack","arguments":{"ADamage":1,"Delay":0,"PowerRatio":0.2,"STRRatio":0,"accurate":1,"break":1000,"chainAttack":0,"chainDelay":0,"critical":0,"criticalDamageRatio":2,"dice":{"@arg":"dice"},"dodge":1000,"hit":1000,"ignoreHit":1,"onHit":{"@code":[]},"player":{"@arg":"player"},"rangeAttack":0,"rangeLoad":"targeting.load-live-enemy","target":{"@arg":"player"},"targetDice":3}}],"hook":["buff2.count","character.passive-action"]},{"@method":"remove","args":{"name":"毒"},"call":"card/buff-base.remove","hook":["buff2.remove"]},{"@method":"get","args":{},"code":[],"hook":[]}]
+[{ "@define": ["name", "string", "毒"]},
+{
+  "@extend": "card/buff-base"
+}, {
+  "@method": "init",
+  "args": {
+    "key": "00000000001KdPKW2gri4zTP06yA000k",
+    "max": 1,
+    "num": 1
+  },
+  "call": "card/base.init"
+}, {
+  "@method": "info",
+  "args": {
+    "icon": null,
+    "memo": "",
+    "name": "毒",
+    "type": "buff"
+  },
+  "call": "card/buff-base.info"
+}, {
+  "@method": "add",
+  "args": {
+    "color": "d",
+    "command": {
+      "@self": "class-path"
+    },
+    "length": 4,
+    "mode": "extension",
+    "name": "毒",
+    "type": "debuff-physical"
+  },
+  "code": [],
+  "hook": ["buff.add"]
+}, {
+  "@method": "next-count",
+  "args": {
+    "action": "毒"
+  },
+  "code": [{
+    "@call": "free/attack.buff-physical-attack",
+    "arguments": {
+      "ADamage": 1,
+      "Delay": 0,
+      "PowerRatio": 0.2,
+      "STRRatio": 0,
+      "accurate": 1,
+      "break": 1000,
+      "chainAttack": 0,
+      "chainDelay": 0,
+      "critical": 0,
+      "criticalDamageRatio": 2,
+      "dice": {
+        "@arg": "dice"
+      },
+      "dodge": 1000,
+      "hit": 1000,
+      "ignoreHit": 1,
+      "onHit": {
+        "@code": []
+      },
+      "player": {
+        "@arg": "player"
+      },
+      "rangeAttack": 0,
+      "rangeLoad": "targeting.load-live-enemy",
+      "target": {
+        "@arg": "player"
+      },
+      "targetDice": 3
+    }
+  }],
+  "hook": ["buff.count", "character.passive-action"]
+}, {
+  "@method": "remove",
+  "args": {
+    "name": "毒"
+  },
+  "call": "card/buff-base.remove",
+  "hook": ["buff.remove"]
+}, {
+  "@method": "get",
+  "args": {},
+  "code": [],
+  "hook": []
+}]

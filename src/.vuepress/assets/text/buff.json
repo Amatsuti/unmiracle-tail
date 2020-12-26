@@ -35,6 +35,98 @@
       { "@goto":"hook" }
     ]
   },
+  { "@method":"count",
+    "args":{ },
+    "code":[
+      { "@goto":"hook" }
+    ]
+  },
+  { "@method":"remove",
+    "args":{ },
+    "code":[
+      { "@goto":"hook" }
+    ]
+  },
+  { "@method":"add-status",
+    "args":{ },
+    "code":[
+      { "@define":["status", "array", ["STR","VIT","INT","MND","DEX","AGI"]] },
+      { "@define":["text-ary", "array", []] },
+      { "@call": "array.each",
+        "arguments":{
+          "value":{"@var":"status"},
+          "do":{"@code":[
+            { "@call": "number.assign",
+              "hook":[["common.argument",{"key":{"@arg":"status-key"},"to":"value"}]],
+              "arguments": {
+                "status-key":{"@arg":"value"},
+
+                "to": {"@var":"status", "as":"number"}
+              }
+            },
+            { "@call": "number.to-string",
+              "arguments": {
+                "to": { "@var":"s", "as":"string" },
+                "format": "increase",
+                "value": { "@var":"status" }
+              }
+            },
+            { "@call": "string.format",
+              "arguments": {
+                "to": { "@var":"fmt", "as":"string" },
+                "map": {
+                  "key": { "@arg":"value" },
+                  "value": { "@var":"s" }
+                },
+                "value": "{key}{value}"
+              }
+            },
+            { "@call": "array.push",
+              "hook":[["number.in-range",{"value":{"@arg":"status"}}]],
+              "arguments": {
+                "status":{"@var":"status"},
+                "not-equal":0,
+
+                "to":{"@var":"text-ary"},
+                "value":{"@var":"fmt"}
+              }
+            }
+          ]}
+        }
+      },
+      { "@call":"array.join",
+        "arguments":{
+          "to":{"@var":"text-str", "as":"string"},
+          "separetor": "・",
+          "value":{"@var":"text-ary"}
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"fmt", "as":"string" },
+          "map": {
+            "target": { "@arg":"target" },
+            "text": { "@var":"text-str" }
+          },
+          "value": "{target}の{text}"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": { "@var":"fmt" },
+          "priority": 1000,
+          "value": 1000
+        }
+      },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@var":"action" },
+          "value": { "@var":"st" }
+        }
+      }
+    ]
+  },
   { "@method":"1-add-power",
     "args":{ },
     "code":[

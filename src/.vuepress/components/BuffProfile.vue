@@ -4,37 +4,31 @@
     <div class="detail">
       <div class="profile-first">
         <div class="name">
-          {{ cardName }}
+          {{ buffName }}
           <div class="command">{{command}}</div>
         </div>
-        <div v-if="dice"
-          class="dice">🎲x{{ dice }}</div>
+        <!-- <div v-if="dice"
+          class="dice">🎲x{{ dice }}</div> -->
       </div>
       <div class="profile-second">
         <div class="select">
-          <div class="detail-head">条件</div>
+          <div class="detail-head">付与</div>
           <ul>
-            <li v-for="v in ai">
+            <li v-for="v in addBuff">
               {{ v.value }}
             </li>
           </ul>
-          <div class="detail-head">入力</div>
+          <div class="detail-head">消滅</div>
           <ul>
-            <li v-for="v in input">
+            <li v-for="v in removeBuff">
               {{ v.value }}
             </li>
           </ul>
         </div>
-        <!-- <div class="armor">{{ armor }}</div>
-        <div class="aria">{{ aria }}</div> -->
         <div class="action">
-          <div class="start-action">
-            <div class="aria">発生：{{ aria }}</div>
-            <div class="armor">耐久：{{ armor }}</div>
-          </div>
           <div class="action-detail">
             <ul>
-              <li v-for="v in action">
+              <li v-for="v in nextCount">
                 {{ v.value }}
               </li>
             </ul>
@@ -63,27 +57,20 @@ export default {
     command: String
   },
   computed: {
-    cardName () { return this.innerValue["name"] },
-    ai () { return this.innerValue["ai"] },
-    input () { return this.innerValue["input"] },
-    startAction () { return this.innerValue["start-action"] },
-    armor () { return this.innerValue.armor },
-    aria () { return this.innerValue.aria },
-    action () { return this.innerValue["action"] },
+    buffName () { return this.innerValue["name"] },
+    addBuff () { return this.innerValue["add"] },
+    nextCount () { return this.innerValue["next-count"] },
+    removeBuff () { return this.innerValue["remove"] },
     etc () { return this.innerValue["etc"]||[] },
-    dice () { return this.innerValue["dice"]||0 }
   },
   data () {
     return {
       innerValue: {
         name: "",
-        ai: [],
-        input: [],
-        "start-action":[],
-        armor: 0,
-        aria: 0,
-        action: [],
-        etc: []
+        add: [],
+        "next-count": [],
+        remove: [],
+        etc: [],
       }
     }
   },
@@ -99,7 +86,7 @@ export default {
   },
   methods: {
     load () {
-      Unmiracle.getText("card", this.command, (data)=>{ this.innerValue = data })
+      Unmiracle.getText("buff-card", this.command, (data)=>{ this.innerValue = data })
     }
   }
 }
@@ -184,22 +171,8 @@ export default {
       border-right: 0px;
       padding: 10px;
     }
-    .start-action {
-      height: 1.5rem;
-      display: flex;
-
-      .aria {
-        width: 165px;
-        border-right: 0px;
-        border-bottom: 0px;
-      }
-      .armor {
-        width: 165px;
-        border-bottom: 0px;
-      }
-    }
     .action-detail {
-      height: calc(100% - 1.5rem);
+      height: 100%;
       padding: 10px;
     }
   }
