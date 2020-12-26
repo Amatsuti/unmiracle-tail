@@ -42,9 +42,9 @@
           <div class="character-header">スキル</div>
           <draggable v-model="edit.skill" handle=".grip">
             <div v-for="(v,i) in edit.skill" :key="`skill-${v.RID}`" 
-              class="skill-child" @click="listSkill(i)">
+              class="skill-child">
               <div class="grip">＝</div>
-              <div class="label">{{ cardName(v) }}</div>
+              <div class="label" @click="listSkill(i)">{{ cardName(v) }}</div>
               <div class="del" @click="removeSkill(i)">×</div>
             </div>
           </draggable>
@@ -108,6 +108,7 @@ import cardList from '@/assets/cardlist.json'
 import _ from 'lodash'
 import draggable from 'vuedraggable'
 import Card from '@/components/Card'
+import { nanoid } from 'nanoid'
 export default {
   props: {
     team1: { type:Array, default:()=>[] },
@@ -183,7 +184,7 @@ export default {
     },
     selectSkill (val) {
       if(this.subcursor < 0){ 
-        const rid = _.uniqueId('S')
+        const rid = nanoid(10)
         this.edit.skill.push({
           Cmd: val,
           Arg: { Lv:1 },
@@ -212,6 +213,8 @@ export default {
       let rid = this.edit.skill[i].RID
       this.edit.skill.splice(i,1)
       this.edit.ai = _.reject(this.edit.ai, { arguments:{rid} })
+      this.subcursor = -1
+      this.submode = null
       this.$emit('input', { pt1:this.innerTeam1, pt2:this.innerTeam2 })
     },
     skillInEdit (RID) {
