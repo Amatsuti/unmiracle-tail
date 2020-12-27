@@ -1,0 +1,59 @@
+[
+  { "@method":"normal-heal",
+    "args":{
+      "player":null, "target":null,
+      "dice":null,
+      "AHeal":0,
+      "MNDRatio":0, "VITRatio":0
+    },
+    "code":[
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"AHeal", "as":"string" },
+          "value": { "@arg":"AHeal" }
+        }
+      },
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"MNDRatio", "as":"string" },
+          "value": { "@arg":"MNDRatio" }
+        }
+      },
+      { "@call": "number.to-string",
+        "arguments": {
+          "to": { "@var":"VITRatio", "as":"string" },
+          "value": { "@arg":"VITRatio" }
+        }
+      },
+      { "@call": "string.format",
+        "arguments": {
+          "to": { "@var":"fmt", "as":"string" },
+          "map": {
+            "heal": { "@var":"AHeal" },
+            "mnd": { "@var":"MNDRatio" },
+            "vit": { "@var":"VITRatio" },
+            "target": { "@arg":"target" }
+          },
+          "value": "{target}を回復(威力{heal}xMND{mnd}/xVIT{vit})します"
+        }
+      },
+      { "@call": "code/text/sentence.put",
+        "arguments": {
+          "to": { "@var":"st", "as":"code/text/sentence" },
+          "text": { "@var":"fmt" },
+          "priority": 1000,
+          "value": 1000
+        }
+      },
+      { "@call": "array.push",
+        "arguments": {
+          "to": { "@var":"action" },
+          "value": { "@var":"st" }
+        }
+      }
+    ]
+  },
+  { "@method": "buff-heal",
+    "call": "free/heal.normal-heal"
+  }
+]

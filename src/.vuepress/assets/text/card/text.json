@@ -81,7 +81,8 @@
         "player": {"@var":"player"},
         "target": {"@var":"target"},
         "dice": {"@var":"dice"},
-        "buff": "異常状態"
+        "buff": "異常状態",
+        "added": true
       }
     },
     { "@call":"array.each",
@@ -158,11 +159,17 @@
         "value":{"@var":"text" }
       }
     },
+    { "@call":[{"@arg":"class"},"info"],
+      "arguments":{
+        "to":{"@var":"name", "as":"string"},
+        "key":"name"
+      }
+    },
     { "@call":"map.put",
       "arguments":{
         "to":{"@var":"test"},
         "key":"name",
-        "value":{"@var":"name", "class":{"@arg":"class"} }
+        "value":{"@var":"name"}
       }
     },
     { "@call":"common.to-global-scope",

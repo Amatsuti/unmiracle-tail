@@ -18,20 +18,25 @@
               {{ v.value }}
             </li>
           </ul>
-          <div class="detail-head">消滅</div>
-          <ul>
-            <li v-for="v in removeBuff">
-              {{ v.value }}
-            </li>
-          </ul>
-        </div>
-        <div class="action">
-          <div class="action-detail">
+          <template v-if="removeBuff.length > 0">
+            <div class="detail-head">消滅</div>
             <ul>
-              <li v-for="v in nextCount">
+              <li v-for="v in removeBuff">
                 {{ v.value }}
               </li>
             </ul>
+          </template>
+        </div>
+        <div class="action">
+          <div class="action-detail">
+            <template v-if="nextCount.length > 0">
+              <div class="detail-head">カウント毎</div>
+              <ul>
+                <li v-for="v in nextCount">
+                  {{ v.value }}
+                </li>
+              </ul>
+            </template>
             <template v-if="etc.length > 0">
               <div class="detail-head">その他</div>
               <ul>

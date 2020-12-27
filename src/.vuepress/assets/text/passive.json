@@ -1,4 +1,14 @@
 [
+  { "@method":"barrier",
+    "args":{
+      "target":null, "buff":null,
+      "profile":{},
+      "skill":[],
+      "ability":[],
+      "ai":[]
+    },
+    "code":[]
+  },
   { "@method":"standby",
     "args":{},
     "code":[
