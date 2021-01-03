@@ -2,13 +2,130 @@
   { "@method":"add",
     "args":{ "dice":0 },
     "code":[
+      { "@call": "layer-status-set.set-static", 
+        "arguments": {
+          "to": {"@var":"param", "as":"layer-status-set"},
+          "value": {
+            "power": 1000
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"STR", "as":"number"},
+          "key": "STR",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"STR * @STRRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"INT", "as":"number"},
+          "key": "INT",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"INT * @INTRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"VIT", "as":"number"},
+          "key": "VIT",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"VIT * @VITRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"MND", "as":"number"},
+          "key": "MND",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"MND * @MNDRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"DEX", "as":"number"},
+          "key": "DEX",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"DEX * @DEXRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"AGI", "as":"number"},
+          "key": "AGI",
+          "unit": {"@arg":"player"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1000,
+          "method": "layer-status.exp2",
+          "value": {
+            "power": {"@calc":"AGI * @AGIRatio"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"power", "as":"number"},
+          "key": "power",
+          "value": {"@var":"param"}
+        }
+      },
       { "@call":[{"@arg":"buff"},"add"],
         "arguments": {
           "dice":{"@arg":"dice"},
           "player":{"@arg":"player"},
           "target":{"@arg":"target"},
           "target2":{"@arg":"target2"},
-          "power": 1000
+          "power": {"@var":"power"}
         }
       }
     ]
@@ -19,6 +136,7 @@
   },
   { "@method":"add-status",
     "args":{
+      "PowerRatio": 0,
       "target":null, "buff":null,
       "STR":0, "INT":0,
       "VIT":0, "MND":0,
@@ -44,7 +162,10 @@
       },
       { "@define":["power-ratio", "number", {"@calc":"power / 100 * @PowerRatio"}] },
       { "@call": "layer-status-set.push", 
+        "hook":[["number.in-range",{"value":{"@arg":"power-ratio"},"not-equal":0}]],
         "arguments": {
+          "power-ratio":{"@arg":"PowerRatio"},
+
           "to": {"@var":"param" },
           "index": 1,
           "method": "layer-status.exp2",
