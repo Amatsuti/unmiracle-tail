@@ -6,13 +6,41 @@
   { "@method": "buff-physical-attack",
     "args": { "PowerRatio":0.0 },
     "code": [
-      { "@call": "free/attack.physical-attack",
+      { "@call": "layer-status-set.set-static", 
         "arguments": {
+          "to": {"@var":"param", "as":"layer-status-set"},
+          "value": {
+            "ADamage":{"@arg":"ADamage"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"power", "as":"number"},
+          "key": "power",
+          "unit": {"@var":"self"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1,
+          "method": "layer-status.exp2",
+          "value": {
+            "ADamage": {"@calc":"power / 100 * @PowerRatio"}
+          }
+        }
+      },
+      { "@call": "free/attack.physical-attack",
+        "hook": [["layer-status-set.deploy",{"value":{"@arg":"param"}}]],
+          "arguments": {
+          "param":{"@var":"param"},
+
           "player":{"@arg":"player"},
           "target":{"@arg":"target"},
-
+    
           "STRRatio":{"@arg":"STRRatio"},
-          "ADamage":{"@arg":"ADamage"},
+          "ignoreHit":{"@arg":"ignoreHit"},
           "onHit":{"@arg":"onHit"}
         }
       }
@@ -25,13 +53,41 @@
   { "@method": "buff-magical-attack",
     "args": { "PowerRatio":0.0 },
     "code": [
-      { "@call": "free/attack.magical-attack",
+      { "@call": "layer-status-set.set-static", 
         "arguments": {
+          "to": {"@var":"param", "as":"layer-status-set"},
+          "value": {
+            "ADamage":{"@arg":"ADamage"}
+          }
+        }
+      },
+      { "@call": "layer-status-set.current",
+        "arguments": {
+          "to": {"@var":"power", "as":"number"},
+          "key": "power",
+          "unit": {"@var":"self"}
+        }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1,
+          "method": "layer-status.exp2",
+          "value": {
+            "ADamage": {"@calc":"power / 100 * @PowerRatio"}
+          }
+        }
+      },
+      { "@call": "free/attack.magical-attack",
+        "hook": [["layer-status-set.deploy",{"value":{"@arg":"param"}}]],
+        "arguments": {
+          "param":{"@var":"param"},
+
           "player":{"@arg":"player"},
           "target":{"@arg":"target"},
 
           "INTRatio":{"@arg":"INTRatio"},
-          "ADamage":{"@arg":"ADamage"},
+          "ignoreHit":{"@arg":"ignoreHit"},
           "onHit":{"@arg":"onHit"}
         }
       }
