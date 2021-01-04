@@ -22,9 +22,9 @@ export default {
   components: { BuffIcon },
   computed: {
     damageClass () {
-      if(this.options.power <= 10){
+      if(this.options.power < 1000){
         return 's-add-buff'
-      }else if(this.options.power < 100){
+      }else if(this.options.power < 5000){
         return 'm-add-buff'
       }else{
         return 'l-add-buff'

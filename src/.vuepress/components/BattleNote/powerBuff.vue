@@ -29,9 +29,9 @@ export default {
   extends: base,
   computed: {
     damageClass () {
-      if(this.options.value < 10){
+      if(this.options.value < 1000){
         return 's-power-buff'
-      }else if(this.options.value < 100){
+      }else if(this.options.value < 5000){
         return 'm-power-buff'
       }else{
         return 'l-power-buff'

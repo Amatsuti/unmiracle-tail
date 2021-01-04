@@ -21,6 +21,7 @@ import protect from './protect'
 import avoid from './avoid'
 import cost from './cost'
 import cutin from './cutin'
+import prepare from './prepare'
 export default {
   components:{
     nextTurn,
@@ -46,6 +47,7 @@ export default {
     protect,
     avoid,
     cost,
-    cutin
+    cutin,
+    prepare
   }  
 }

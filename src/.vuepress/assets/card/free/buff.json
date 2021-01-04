@@ -153,29 +153,14 @@
           }
         }
       },
-      { "@call": "layer-status-set.current",
-        "arguments": {
-          "to": {"@var":"power", "as":"number"},
-          "key": "power",
-          "unit": {"@arg":"buff"}
-        }
-      },
-      { "@define":["power-ratio", "number", {"@calc":"power / 100 * @PowerRatio"}] },
       { "@call": "layer-status-set.push", 
-        "hook":[["number.in-range",{"value":{"@arg":"power-ratio"},"not-equal":0}]],
         "arguments": {
-          "power-ratio":{"@arg":"PowerRatio"},
-
           "to": {"@var":"param" },
           "index": 1,
-          "method": "layer-status.exp2",
+          "method": "buff.power",
           "value": {
-            "STR": {"@var":"power-ratio"},
-            "INT": {"@var":"power-ratio"},
-            "VIT": {"@var":"power-ratio"},
-            "MND": {"@var":"power-ratio"},
-            "DEX": {"@var":"power-ratio"},
-            "AGI": {"@var":"power-ratio"}
+            "ratio": {"@arg":"PowerRatio"},
+            "buff": {"@arg":"buff"}
           }
         }
       },
@@ -192,7 +177,6 @@
         }
       },
       { "@call": "buff.add-status",
-        "hook": [["layer-status-set.deploy",{"value":{"@arg":"param"}}]],
         "arguments":{
           "param":{"@var":"param"},
 
