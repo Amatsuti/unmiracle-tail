@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[207],{675:function(o){o.exports=JSON.parse('[{"@method":"add","call":"buff.add"},{"@method":"count","call":"buff.count"},{"@method":"remove","call":"buff.count"},{"@method":"1-add-power","call":"buff.count"}]')}}]);

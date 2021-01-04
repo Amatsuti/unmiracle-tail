@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[206],{677:function(o){o.exports=JSON.parse('[{"@method":"skill-performance","args":{},"code":[]}]')}}]);

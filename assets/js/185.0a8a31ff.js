@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[185],{653:function(a){a.exports=JSON.parse('[{"@method":"normal-heal","call":"heal.1-heal"},{"@method":"buff-heal","call":"heal.1-heal"}]')}}]);
