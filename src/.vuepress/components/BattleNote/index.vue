@@ -4,6 +4,7 @@
       <component :is="opr['@call'].split('.')[1]" v-for="(opr,i) in code" :key="i+'hoge'"
         :options="opr.arguments"
         :pt1="pt1" :pt2="pt2"
+        @addMember="$emit('addMember', $event)"
       >
       </component>
     </transition-group>

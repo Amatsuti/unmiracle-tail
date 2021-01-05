@@ -7,7 +7,7 @@
     <div class="rule">
       <button @click="simu" :disabled="!ok">シミュレーション</button>
     </div>
-    <battle-note :code="log" :pt1="pt1" :pt2="pt2"></battle-note>
+    <battle-note :code="log" :pt1="pt1" :pt2="pt2" @addMember="addMember"></battle-note>
   </white-page>
 </template>
 
@@ -57,6 +57,13 @@ export default {
     updateTeam(p1, p2) {
       this.pt1json = p1
       this.pt2json = p2
+    },
+    addMember(ch) {
+      if(ch.team == 'team1'){
+        this.pt1.push(ch)
+      }else if(ch.team == 'team2'){
+        this.pt2.push(ch)
+      }
     }
   }
 }

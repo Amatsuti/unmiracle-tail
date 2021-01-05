@@ -1,0 +1,61 @@
+[
+  { "@define": ["name", "string", "コウモリ召喚"] },
+  { "@method":"init-battle",
+    "call": "base-targeting-cmd.init",
+    "hook": ["passive.standby"],
+    "args": {
+      "command": { "@self":"class-path" }
+    }
+  },
+  { "@method":"input",
+    "call": "base-targeting-cmd.input",
+    "hook": ["targeting.load-me", "character.count-skill-ai"]
+  },
+  { "@method":"targeting",
+    "call": "base-targeting-cmd.targeting"
+  },
+  { "@method":"ai",
+    "call": "base-targeting-cmd.ai",
+    "hook": ["ai.disabled"],
+    "args": { "command":{"@self":"class-path"}
+    }
+  },
+  { "@method":"start-action",
+    "call": "base-targeting-cmd.start-action",
+    "args": {
+      "Armor":2000, "Aria":1000
+    }
+  },
+  { "@method":"action",
+    "hook": ["character.base-action"],
+    "args": { "action":"コウモリ召喚" },
+    "code": [
+      { "@call":"summon.1-summon",
+        "arguments":{
+          "player": { "@arg":"player" },
+
+          "profile":{"name":"コウモリ"},
+          "skill":[],
+          "ability": [{
+            "RID":"a1",
+            "Cmd":"test-cmd/soul",
+            "Arg":{
+              "Lv": 1,
+              "HP": 3,
+              "STR": 1,
+              "INT": 0,
+              "VIT": 0,
+              "MND": 0,
+              "DEX": 0,
+              "AGI": 0
+            }
+          }],
+          "ai":[]
+        }
+      }
+    ]
+  },
+  { "@method":"end-action",
+    "call": "base-targeting-cmd.end-action"
+  }
+]
