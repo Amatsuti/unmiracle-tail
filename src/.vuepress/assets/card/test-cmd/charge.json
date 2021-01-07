@@ -1,0 +1,78 @@
+[{ "@define": ["name", "string", "突進"]},
+{
+  "@extend": "card/base"
+}, {
+  "@method": "init-battle",
+  "args": {
+    "command": {
+      "@self": "class-path"
+    }
+  },
+  "call": "base-targeting-cmd.init",
+  "hook": []
+}, {
+  "@method": "input",
+  "args": {},
+  "call": "base-targeting-cmd.input",
+  "hook": ["character.count-skill-ai", "targeting.load-live-enemy"]
+}, {
+  "@method": "ai",
+  "args": {
+    "command": {
+      "@self": "class-path"
+    }
+  },
+  "call": "base-targeting-cmd.ai",
+  "hook": ["ai.change"]
+}, {
+  "@method": "start-action",
+  "args": {
+    "Aria": 1250,
+    "Armor": 2750
+  },
+  "call": "base-targeting-cmd.start-action",
+  "hook": []
+}, {
+  "@method": "action",
+  "args": {
+    "action": "突進"
+  },
+  "code": [{
+    "@call": "free/attack.physical-attack",
+    "arguments": {
+      "ADamage": 1,
+      "Delay": 500,
+      "STRRatio": 0.3,
+      "accurate": 1,
+      "break": 2000,
+      "chainAttack": 0,
+      "chainDelay": 0,
+      "critical": 0,
+      "criticalDamageRatio": 2,
+      "dice": {
+        "@arg": "dice"
+      },
+      "dodge": 1500,
+      "hit": 1000,
+      "onHit": {
+        "@code": [{
+          "@call":"passive.start-rush",
+          "arguments":{
+            "player":{"@arg":"player"},
+            "target":{"@arg":"target"}
+          }
+        }]
+      },
+      "player": {
+        "@arg": "player"
+      },
+      "rangeAttack": 0,
+      "rangeLoad": "targeting.load-live-enemy",
+      "target": {
+        "@arg": "target"
+      },
+      "targetDice": 3
+    }
+  }],
+  "hook": ["character.base-action", "free/show.skill-performance", "dice.throw"]
+}]

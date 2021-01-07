@@ -1,0 +1,42 @@
+[ { "@define":["name", "string", "至近行動"] },
+  { "@method":"add",
+    "hook": ["buff.add"],
+    "args": {
+      "command": { "@self":"class-path" },
+      "name": "至近行動",
+      "length": 2,
+      "min": 500,
+      "power": 1000,
+      "type": "buff-stance", "color":"n",
+      "mode": "overwrite", "countEvent":"afterAction"
+    },
+    "code":[
+      { "@call": "layer-status-set.set-static", 
+        "arguments": {
+          "to": {"@var":"param", "as":"layer-status-set"},
+          "value": {
+            "Distance":1000
+          }
+        }
+      },
+      { "@call":"buff.add-status",
+        "arguments": {
+          "target": { "@arg":"player" },
+          "buff": { "@arg":"buff" },
+          "param": { "@var":"param" }
+        }
+      }
+    ]
+  },
+  { "@method":"next-count",
+    "hook": ["buff.count"],
+    "args": { },
+    "code": [
+    ]
+  },
+  { "@method":"remove",
+    "hook": ["buff.remove"],
+    "args": { },
+    "code":[]
+  }
+]

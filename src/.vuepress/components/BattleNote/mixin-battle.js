@@ -23,6 +23,7 @@ import cost from './cost'
 import cutin from './cutin'
 import prepare from './prepare'
 import summon from './summon'
+import cancel from './cancel'
 export default {
   components:{
     nextTurn,
@@ -50,6 +51,7 @@ export default {
     cost,
     cutin,
     prepare,
-    summon
+    summon,
+    cancel
   }  
 }
