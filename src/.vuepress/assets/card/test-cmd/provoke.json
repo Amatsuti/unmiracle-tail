@@ -1,44 +1,39 @@
 [
-  { "@define": ["name", "string", "通常攻撃"]},
+  { "@define": ["name", "string", "挑発"]},
   { "@method":"init-battle",
     "call": "base-targeting-cmd.init",
-    "hook": ["character.push-ai"],
     "args": {
       "command": { "@self":"class-path" }
     }
   },
   { "@method":"input",
     "call": "base-targeting-cmd.input",
-    "hook": ["targeting.load-live-enemy", "targeting.more-hate", "character.count-skill-ai"]
+    "hook": ["targeting.load-live-enemy", "character.count-skill-ai"]
   },
   { "@method":"targeting",
     "call": "base-targeting-cmd.targeting"
   },
   { "@method":"ai",
     "call": "base-targeting-cmd.ai",
-    "hook": ["ai.negative"],
-    "args": { "command":{"@self":"class-path"} }
+    "hook": ["ai.change", "targeting.load-live-enemy",
+      "targeting.equip-buff", "ai.not-exists"],
+    "args": { "command":{"@self":"class-path"},
+      "buffCommand":"test-cmd/debuff-provoke" }
   },
   { "@method":"start-action",
     "call": "base-targeting-cmd.start-action",
     "args": {
-      "Armor":2500, "Aria":1200
+      "Armor":2000, "Aria":1000
     }
   },
   { "@method":"action",
     "hook": ["character.base-action", "dice.throw"],
-    "args": { "action":"通常攻撃" },
+    "args": { "action":"挑発" },
     "code": [
-      { "@call":"free/attack.physical-attack",
+      { "@call":"test-cmd/debuff-provoke.add",
         "arguments":{
-          "player":{ "@arg":"player" },
-          "target":{ "@arg":"target" },
-
-          "ADamage":1,
-          "STRRatio":1.0,
-          "accurate":1.0,
-
-          "VITRatio":1.0
+          "player": { "@arg":"player" },
+          "target": { "@arg":"target" }
         }
       }
     ]

@@ -1,0 +1,36 @@
+[
+  { "@method":"add",
+    "hook": ["buff.add"],
+    "args": {
+      "command": { "@self":"class-path" },
+      "name": "挑発",
+      "length": 6,
+      "min": 500,
+      "power": 1000,
+      "type": "debuff-mental", "color":"r",
+      "mode": "extension"
+    },
+    "code":[
+      { "@call":"free/buff.add-hate",
+        "arguments": {
+          "player": { "@arg":"player" },
+          "target": { "@arg":"target" },
+          "buff": { "@arg":"buff" },
+          "PowerRatio": 1.0,
+          "num": 100
+        }
+      }
+    ]
+  },
+  { "@method":"next-count",
+    "hook": ["buff.count"],
+    "args": { },
+    "code": [
+    ]
+  },
+  { "@method":"remove",
+    "hook": ["buff.remove"],
+    "args": { },
+    "code":[]
+  }
+]

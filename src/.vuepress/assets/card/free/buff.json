@@ -185,5 +185,41 @@
         }
       }
     ]
+  },
+  { "@method":"add-hate",
+    "args":{
+      "PowerRatio": 0,
+      "player":null, "target":null, "buff":null,
+      "num":0
+    },
+    "code":[
+      { "@call": "buff.add-hate", 
+        "arguments": {
+          "param": {"@var":"param", "as":"layer-status-set"},
+
+          "player": {"@arg":"player"},
+          "num":{"@arg":"num"}
+      }
+      },
+      { "@call": "layer-status-set.push", 
+        "arguments": {
+          "to": {"@var":"param" },
+          "index": 1,
+          "method": "buff.power",
+          "value": {
+            "ratio": {"@arg":"PowerRatio"},
+            "buff": {"@arg":"buff"}
+          }
+        }
+      },
+      { "@call": "buff.add-status",
+        "arguments":{
+          "param":{"@var":"param"},
+
+          "target": {"@arg":"target"},
+          "buff": {"@arg":"buff"}
+        }
+      }
+    ]
   }
 ]

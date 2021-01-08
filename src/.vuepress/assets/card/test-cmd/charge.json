@@ -14,7 +14,7 @@
   "@method": "input",
   "args": {},
   "call": "base-targeting-cmd.input",
-  "hook": ["character.count-skill-ai", "targeting.load-live-enemy"]
+  "hook": ["character.count-skill-ai", "targeting.load-live-enemy", "targeting.more-hate"]
 }, {
   "@method": "ai",
   "args": {
