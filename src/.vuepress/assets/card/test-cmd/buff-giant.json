@@ -1,0 +1,46 @@
+[
+  { "@method":"add",
+    "hook": ["buff.add"],
+    "args": {
+      "command": { "@self":"class-path" },
+      "name": "巨大化",
+      "length": 3,
+      "min": 500,
+      "power": 1000,
+      "type": "buff-physical", "color":"s",
+      "mode": "extension"
+    },
+    "code":[
+      { "@call":"free/buff.add-status",
+        "arguments": {
+          "target": { "@arg":"player" },
+          "buff": { "@arg":"buff" },
+          "STR": 10, "VIT": 0,
+          "INT": 0, "MND": 0,
+          "DEX": 0, "AGI": -5,
+          "MHP": 30
+        }
+      },
+      { "@call":"free/heal.buff-heal",
+        "arguments":{
+          "player":{ "@arg":"buff" },
+          "target":{ "@arg":"player" },
+
+          "AHeal":30,
+          "accurate":1.0
+        }
+      }
+    ]
+  },
+  { "@method":"next-count",
+    "hook": ["buff.count"],
+    "args": { },
+    "code": [
+    ]
+  },
+  { "@method":"remove",
+    "hook": ["buff.remove"],
+    "args": { },
+    "code":[]
+  }
+]

@@ -55,7 +55,13 @@
       "dodge": 1500,
       "hit": 1000,
       "onHit": {
-        "@code": []
+        "@code": [{
+          "@call":"test-cmd/buff-reduction.add",
+          "arguments":{
+            "player":{"@arg":"player"},
+            "target":{"@arg":"player"}
+          }
+        }]
       },
       "player": {
         "@arg": "player"

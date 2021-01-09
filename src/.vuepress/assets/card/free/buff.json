@@ -140,7 +140,8 @@
       "target":null, "buff":null,
       "STR":0, "INT":0,
       "VIT":0, "MND":0,
-      "DEX":0, "AGI":0
+      "DEX":0, "AGI":0,
+      "MHP":0
     },
     "code":[
       { "@call": "layer-status-set.set-static", 
@@ -149,7 +150,8 @@
           "value": {
             "STR":{"@arg":"STR"}, "INT":{"@arg":"INT"},
             "VIT":{"@arg":"VIT"}, "MND":{"@arg":"MND"},
-            "DEX":{"@arg":"DEX"}, "AGI":{"@arg":"AGI"}
+            "DEX":{"@arg":"DEX"}, "AGI":{"@arg":"AGI"},
+            "MHP":{"@arg":"MHP"}
           }
         }
       },
@@ -172,7 +174,8 @@
           "value": {
             "STR":{"@arg":"STR"}, "INT":{"@arg":"INT"},
             "VIT":{"@arg":"VIT"}, "MND":{"@arg":"MND"},
-            "DEX":{"@arg":"DEX"}, "AGI":{"@arg":"AGI"}
+            "DEX":{"@arg":"DEX"}, "AGI":{"@arg":"AGI"},
+            "MHP":{"@arg":"MHP"}
           }
         }
       },

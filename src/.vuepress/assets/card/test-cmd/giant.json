@@ -1,0 +1,46 @@
+[
+  { "@define": ["name", "string", "巨大化"] },
+  { "@method":"init-battle",
+    "call": "base-targeting-cmd.init",
+    "args": {
+      "command": { "@self":"class-path" }
+    }
+  },
+  { "@method":"input",
+    "call": "base-targeting-cmd.input",
+    "hook": ["targeting.load-me", "character.count-skill-ai"]
+  },
+  { "@method":"targeting",
+    "call": "base-targeting-cmd.targeting"
+  },
+  { "@method":"ai",
+    "call": "base-targeting-cmd.ai",
+    "hook": ["targeting.load-me", "targeting.unequip-buff",
+      "ai.exists", "ai.turn-count", "ai.change"],
+    "args": { "command":{"@self":"class-path"},
+      "buffCommand": "test-cmd/buff-giant",
+      "turnCount": 3, "turnOperator": "eq-more"
+    }
+  },
+  { "@method":"start-action",
+    "call": "base-targeting-cmd.start-action",
+    "args": {
+      "Armor":2000, "Aria":200
+    }
+  },
+  { "@method":"action",
+    "hook": ["character.base-action"],
+    "args": { "action":"巨大化" },
+    "code": [
+      { "@call":"test-cmd/buff-giant.add",
+        "arguments":{
+          "target": { "@arg":"target" },
+          "player": { "@arg":"player" }
+        }
+      }
+    ]
+  },
+  { "@method":"end-action",
+    "call": "base-targeting-cmd.end-action"
+  }
+]

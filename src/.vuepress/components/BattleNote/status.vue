@@ -42,7 +42,7 @@
 <script>
 import base from './base'
 import _ from 'lodash'
-const fixStatus = ['STR','INT','VIT','MND','DEX','AGI']
+const fixStatus = ['STR','INT','VIT','MND','DEX','AGI','MHP']
 export default {
   name:'heal',
   extends: base,

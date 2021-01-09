@@ -24,6 +24,8 @@ import cutin from './cutin'
 import prepare from './prepare'
 import summon from './summon'
 import cancel from './cancel'
+import miss from './miss'
+import energy from './energy'
 export default {
   components:{
     nextTurn,
@@ -52,6 +54,8 @@ export default {
     cutin,
     prepare,
     summon,
-    cancel
+    cancel,
+    miss,
+    energy
   }  
 }

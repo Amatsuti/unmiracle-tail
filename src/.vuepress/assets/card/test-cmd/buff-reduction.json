@@ -1,0 +1,35 @@
+[
+  { "@method":"add",
+    "hook": ["buff.add"],
+    "args": {
+      "command": { "@self":"class-path" },
+      "name": "還元",
+      "length": 3,
+      "min": 500,
+      "power": 1000,
+      "type": "buff-mental", "color":"a",
+      "mode": "add"
+    },
+    "code":[]
+  },
+  { "@method":"next-count",
+    "hook": ["buff.count"],
+    "args": { },
+    "code": [
+    ]
+  },
+  { "@method":"remove",
+    "hook": ["character.passive-action", "buff.remove"],
+    "args": { "action":"還元" },
+    "code":[
+      { "@call":"heal.1-energy",
+        "arguments":{
+          "player":{ "@arg":"self" },
+          "target":{ "@arg":"player" },
+
+          "AHeal":2
+        }
+      }
+    ]
+  }
+]
