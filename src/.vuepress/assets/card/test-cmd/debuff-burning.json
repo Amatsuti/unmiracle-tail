@@ -16,17 +16,30 @@
     "hook": ["character.passive-action", "buff.count"],
     "args": { "action":"炎上" },
     "code": [
-      { "@call":"attack.1-attack",
+      { "@call":"free/attack.buff-physical-attack",
         "arguments":{
-          "player":{ "@arg":"self" },
+          "player":{ "@arg":"player" },
           "target":{ "@arg":"player" },
 
-          "ADamage":10,
-          "STRRatio":1.0,
+          "chainAttack": 0,
+          "rangeAttack": 0,
+          "rangeLoad": "targeting.load-live-enemy",
+    
+          "dodge": 1000,
+          "hit": 1000,
+    
+          "critical": 0,
+          "criticalDamageRatio": 1.25,
+
+          "STRRatio":0.0,
+          "ADamage":1,
+          "PowerRatio":0.3,
           "accurate":1.0,
 
-          "VITRatio":1.0,
-          "ignoreHit":true
+          "break": 1000,
+
+          "ignoreHit":true,
+          "onHit":{"@code":[]}
         }
       }
     ]

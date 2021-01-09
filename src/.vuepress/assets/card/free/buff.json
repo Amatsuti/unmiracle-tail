@@ -1,12 +1,12 @@
 [
   { "@method":"add",
-    "args":{ "dice":0 },
+    "args":{ "dice":0, "power":1000 },
     "code":[
-      { "@call": "layer-status-set.set-static", 
+      { "@call": "layer-status-set.set-static",
         "arguments": {
           "to": {"@var":"param", "as":"layer-status-set"},
           "value": {
-            "power": 1000
+            "power": { "@arg":"power" }
           }
         }
       },

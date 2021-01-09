@@ -28,21 +28,32 @@
     "hook": ["character.base-action", "dice.throw"],
     "args": { "action":"火炎魔法" },
     "code": [
-      { "@call":"attack.1-attack",
+      { "@call":"free/attack.magical-attack",
         "arguments":{
           "player":{ "@arg":"player" },
           "target":{ "@arg":"target" },
+          "dice":{"@arg":"dice" },
+          "targetDice":3,
 
-          "ADamage":10,
+          "ADamage":3,
           "INTRatio":1.0,
           "accurate":1.0,
 
-          "MNDRatio":1.0,
-
           "onHit": {"@code":[
-            { "@call":"test-cmd/debuff-burning.add",
+            { "@call":"free/buff.add",
               "arguments":{
-                "target": { "@arg":"target" }
+                "AGIRatio": 0,
+                "DEXRatio": 0,
+                "INTRatio": 25,
+                "MNDRatio": 0,
+                "STRRatio": 0,
+                "VITRatio": 0,
+                "dice": { "@arg":"dice" },
+                "player": { "@arg":"player" },
+                "target": { "@arg":"target" },
+                "target2": { "@arg":"target" },
+                "buff": "test-cmd/debuff-burning",
+                "power": { "@calc":"@ratio * 1000" }
               }
             }
           ]}

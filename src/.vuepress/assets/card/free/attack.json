@@ -33,13 +33,27 @@
       },
       { "@call": "free/attack.physical-attack",
         "hook": [["layer-status-set.deploy",{"value":{"@arg":"param"}}]],
-          "arguments": {
+        "arguments": {
           "param":{"@var":"param"},
 
           "player":{"@arg":"player"},
           "target":{"@arg":"target"},
-    
+          
+          "chainAttack":{"@arg":"chainAttack"},
+          "rangeAttack":{"@arg":"rangeAttack"},
+          "rangeLoad":{"@arg":"rangeLoad"},
+          
+          "dodge":{"@arg":"dodge"},
+          "hit":{"@arg":"hit"},
+
+          "critical":{"@arg":"critical"},
+          "criticalDamageRatio":{"@arg":"criticalDamageRatio"},
+
           "STRRatio":{"@arg":"STRRatio"},
+          "accurate":{"@arg":"accurate"},
+
+          "break":{"@arg":"break"},
+
           "ignoreHit":{"@arg":"ignoreHit"},
           "onHit":{"@arg":"onHit"}
         }
@@ -85,8 +99,22 @@
 
           "player":{"@arg":"player"},
           "target":{"@arg":"target"},
+          
+          "chainAttack":{"@arg":"chainAttack"},
+          "rangeAttack":{"@arg":"rangeAttack"},
+          "rangeLoad":{"@arg":"rangeLoad"},
+          
+          "dodge":{"@arg":"dodge"},
+          "hit":{"@arg":"hit"},
+
+          "critical":{"@arg":"critical"},
+          "criticalDamageRatio":{"@arg":"criticalDamageRatio"},
 
           "INTRatio":{"@arg":"INTRatio"},
+          "accurate":{"@arg":"accurate"},
+
+          "break":{"@arg":"break"},
+
           "ignoreHit":{"@arg":"ignoreHit"},
           "onHit":{"@arg":"onHit"}
         }

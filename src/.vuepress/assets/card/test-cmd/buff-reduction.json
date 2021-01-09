@@ -7,7 +7,7 @@
       "length": 3,
       "min": 500,
       "power": 1000,
-      "type": "buff-mental", "color":"a",
+      "type": "debuff-mental", "color":"a",
       "mode": "add"
     },
     "code":[]
